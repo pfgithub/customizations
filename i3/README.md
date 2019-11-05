@@ -17,6 +17,13 @@ keybinds:
 - resize windows: `mod+right click drag`
 - move floating windows: `mod+left click drag`
 
+issues:
+
+- looks terrible (borders look bad, xfce panel looks bad)
+- keybinds are overcomplicated (mod+shift+u and mid+prntscrn are hard to press sometimes)
+- file is messy (many old commented out keybinds)
+- desktop background looks bad (easy to fix)
+
 screenshot:
 
 [![https://i.imgur.com/Hukl6c3.jpg](https://i.imgur.com/Hukl6c3.jpg)](https://i.imgur.com/Hukl6c3.jpg)

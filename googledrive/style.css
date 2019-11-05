@@ -1,0 +1,174 @@
+/*
+Apply to:
+- URLs on the domain docs.google.com
+- URLs on the domain drive.google.com
+- URLs on the domain sheets.google.com
+- URLs on the domain slides.google.com
+*/
+
+.kix-cursor:nth-child(1){
+  transition: 0.1s top ease-in-out, 0.1s left ease-in-out, 0.1s opacity ease-in-out;
+}
+.kix-cursor:nth-child(1).docs-text-ui-cursor-blink{
+  transform-origin:center;
+  animation-name: customblink;
+  animation-duration: 0.1s;
+  transition: 0.1s transform ease-in-out;
+}
+
+@keyframes customblink{
+  0%{
+    opacity: 1;
+  }
+  50%{
+    opacity: 0;
+  }
+  100%{
+    opacity: 1;
+  }
+}
+
+.kix-paginateddocumentplugin.kix-paginateddocumentplugin-compact-mode{
+  box-shadow: none;
+  
+}
+
+#docs-bars{
+  overflow: visible;  
+}
+
+#kix-horizontal-ruler{
+    border-bottom: 0;
+}
+
+#docs-bars > #docs-toolbar-wrapper{
+    border-bottom: 1px solid #e8eaed;
+}
+
+#kix-horizontal-ruler{
+    box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+}
+
+.kix-page.kix-page-paginated,
+.kix-page.kix-page-compact,
+.kix-page.kix-page-compact-first,
+.docs-gm #docs-titlebar-share-client-button .jfk-button,
+.docs-gm #docs-titlebar-share-client-button .jfk-button:hover,
+#docs-instant-button-bubble.docs-material,
+.docs-gm .goog-menu,
+.docs-explore-widget,
+.jfk-butterBar.jfk-butterBar-shown,
+.docs-navigation-tab-button,
+.docs-gm-sidebars ::-webkit-scrollbar-thumb,
+.jfk-button-action.jfk-button-clear-outline,
+.jfk-button.jfk-button-focused,
+.jfk-button.jfk-button-active, .kix-embeddedobject-view,
+.apps-shortcutshelppopup,
+.docs-chat-pane-container.docs-material{
+  border-radius: 10px;
+  box-shadow: 0 2.6px 26px 0 rgba(0,0,0,0.2);
+}
+.docs-gm .docs-title-input, .goog-toolbar-combo-button-input{
+  border-radius: 5px !important;
+  
+}
+.docs-gm .docs-title-input:hover{
+  /*box-shadow: inset 2.6px 2.6px 10px 0 rgba(0,0,0,0.1);*/
+  border-color:white !important;
+  border-radius: 5px !important;
+  background-color: #eee !important;
+}
+.docs-gm .docs-title-input:focus, .goog-toolbar-combo-button-input:focus{
+  border-radius: 5px !important;
+  background-color: white !important;
+  box-shadow: 2.6px 2.6px 16px 0 rgba(0,0,0,0.2);
+  border-color:white !important;
+}
+.docs-gm .goog-menu{
+  content: "";
+  border: none;
+  padding-bottom: 0;
+}
+.docs-gm-sidebars ::-webkit-scrollbar-thumb{
+  box-shadow: 2.6px 2.6px 26px rgba(0,0,0,0.2);
+}
+.docs-gm-sidebars ::-webkit-scrollbar-thumb{
+  display: none;
+}
+.goog-inline-block.jfk-button.jfk-button-standard.jfk-button-narrow{
+  box-sizing:border-box;
+  height:36px;
+  width:36px;
+  transition: 0.1s border-width ease-out, 0.1s background-color ease-in;
+}
+.goog-inline-block.jfk-button.jfk-button-standard.jfk-button-narrow:hover{
+  border-width:8px;
+}
+#docs-instant-button-bubble.docs-material{
+  border-radius: 1000px;
+  background-color: white;
+  border: none;
+}
+.kix-page.kix-page-compact::before{
+  visibility:visible;
+  border-top:1px solid #ddd;
+}
+
+#docs-bars > #docs-toolbar-wrapper{
+  border-top: none;
+}
+#kix-horizontal-ruler{
+}
+.docs-chrome > div{
+  border: none;
+}
+
+.goog-toolbar-separator.goog-inline-block{
+  visibility: hidden;
+  padding-left: 10px
+}
+
+.docs-explore-widget{
+  background-color: white;
+}
+.docs-navigation-tab-button{
+    background-color:white;
+}
+
+.kix-document-top-shadow-inner{
+  background: #eee;
+  height: 0px;
+  visibility: hidden;
+}
+.kix-paginateddocumentplugin.kix-paginateddocumentplugin-compact-mode > .docs-ui-unprintable {
+  visibility: hidden;
+}
+.goog-toolbar-button.goog-inline-block.goog-toolbar-button-hover,
+.goog-toolbar-menu-button.goog-inline-block,
+.goog-toolbar-combo-button.goog-inline-block,
+.menu-button.goog-control{
+  border-radius: 5px;
+  box-shadow:0 0 0 0px rgb(255, 255, 255);
+  transition: 0.1s box-shadow;
+}
+.goog-toolbar-button.goog-inline-block.goog-toolbar-button-hover,
+.goog-toolbar-menu-button.goog-inline-block.goog-toolbar-menu-button-hover,
+.goog-toolbar-combo-button.goog-inline-block.goog-toolbar-combo-button-hover,
+.menu-button.goog-control.goog-control-hover{
+  border-radius: 5px;
+  box-shadow:0 0 0 2px rgb(241, 243, 244);
+}
+.goog-toolbar-button.goog-inline-block.goog-toolbar-button-checked,
+.goog-toolbar-menu-button.goog-inline-block.goog-toolbar-menu-button-open,
+.goog-toolbar-combo-button.goog-inline-block.goog-toolbar-combo-button-open,
+.menu-button.goog-control.goog-control-open{
+  border-radius: 5px;
+  box-shadow:0 0 0 2px rgb(232, 240, 254);
+}
+
+#docs-toolbar-wrapper{
+  /*border-bottom: none !important;*/
+}
+
+
+

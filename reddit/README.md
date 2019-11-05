@@ -17,3 +17,4 @@ issues:
 screenshots:
 
 [![https://i.imgur.com/mSADVjR.png](https://i.imgur.com/mSADVjR.png)](https://i.imgur.com/mSADVjR.png)
+[![https://i.imgur.com/0WLCGUX.png](https://i.imgur.com/0WLCGUX.png)](https://i.imgur.com/0WLCGUX.png)

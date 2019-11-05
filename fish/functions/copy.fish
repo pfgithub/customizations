@@ -1,7 +1,4 @@
-function copy --description 'copy [filename]'
-	if count $argv > /dev/null
-		cat $argv | copy
-	else
-		xclip -selection clipboard
-	end
+# Defined in - @ line 1
+function copy --description 'alias copy=xclip -selection clipboard'
+	xclip -selection clipboard $argv;
 end

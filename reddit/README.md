@@ -4,6 +4,7 @@ reddit styling adjustments to make it look better and act more like new.reddit (
 - make sure to disable custom subreddit styles
 - old.reddit.com
 - single page app (clicking links to comments will keep you on the same page and you can go back and forwards in history)
+- press escape to leave a comment page
 - uses popstate when you exit a post (unlike new.reddit which just pushes a new history state)
 - turns link buttons into link buttons without the context menu options (removes the href so options like "open in new tab" are no longer there)
 - uses css grid

@@ -7,6 +7,7 @@ reddit styling adjustments to make it look better and act more like new.reddit (
 - uses popstate when you exit a post (unlike new.reddit which just pushes a new history state)
 - turns link buttons into link buttons without the context menu options (removes the href so options like "open in new tab" are no longer there)
 - uses css grid
+- collapse button is available on the entire height of the comment (like new.reddit), scrolls properly when you are halfway through a comment when collapsing (like top level comments on new.reddit but everywhere), and does not have the vote buttons covering the top of it
 
 issues:
 

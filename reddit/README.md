@@ -1,4 +1,4 @@
-reddit styling adjustments to make it look better and act more like new.reddit (but without 1000 react rerenders when you hover over someone's username)
+reddit styling adjustments to make it look better and act more like new.reddit (but without collapsing a comment causing the entire page to react rerender)
 
 - works with res
 - make sure to disable custom subreddit styles

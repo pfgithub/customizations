@@ -1,0 +1,16 @@
+/*apply to: URLs on the domain: youtube.com*/
+/*hides all related videos on youtube and blanks out the home page*/
+
+ytd-two-column-browse-results-renderer.style-scope[page-subtype="home"]{
+	display: none !important;
+}
+#secondary.style-scope.ytd-watch-flexy,
+.style-scope.ytd-notification-topbar-button-renderer.notification-button-style-type-default,
+#guide-button,
+#logo
+{
+	display: none;
+}
+ytd-notification-topbar-button-renderer, ytd-topbar-menu-button-renderer{
+	display: none !important;
+}

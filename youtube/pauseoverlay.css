@@ -1,0 +1,8 @@
+/*apply to: URLS On the domain: youtube.com*/
+/*hides annoying pause overlay on other sites
+  (what's the point of pausing if it covers
+   up half your screen with an overlay)*/
+
+.ytp-pause-overlay {
+	display: none;
+}

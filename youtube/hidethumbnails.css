@@ -1,0 +1,26 @@
+/*apply to: sites on the domain: youtube.com*/
+/*hides most images on youtube, such as thumbnails
+  so when looking at videos you judge them by their
+  title before seeing their thumbnails.*/
+
+/*OPTIONAL: Show thumbnails on hover*/
+img:hover {	opacity: 1.0;	filter:invert(0%); transform: scale(1.0); }
+
+/*OPTIONAL: Hide end screen videos
+  (instead, use the sidebar. they are the same videos)*/
+.ytp-videowall-still { display: none; }
+  
+/*----------------------------------------*/
+
+
+img{ /* Hide thumbnails and profile icons. */
+	opacity: 0.3;
+	filter:invert(50%);
+	transition: 0.2s opacity, 0.2s filter, 0.2s transform ease-out;
+	transform: scale(0.8);
+	overflow:visible;
+	border-radius: 10px !important;
+}
+#wrapper.app-header-layout > [slot="header"]{
+	margin-top: 0;
+}

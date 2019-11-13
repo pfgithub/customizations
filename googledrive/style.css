@@ -87,7 +87,6 @@ Apply to:
 .docs-gm .goog-menu{
   content: "";
   border: none;
-  padding-bottom: 0;
 }
 .docs-gm-sidebars ::-webkit-scrollbar-thumb{
   box-shadow: 2.6px 2.6px 26px rgba(0,0,0,0.2);

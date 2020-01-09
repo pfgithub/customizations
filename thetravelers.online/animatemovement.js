@@ -20,6 +20,10 @@
 #world-box{
 overflow: hidden !important;
 }
+.worldtile[style="font-weight:bold;"] {
+animation: none !important;
+transform: none !important;
+}
 ` +
         [
           ["upleft", "-", "-"],

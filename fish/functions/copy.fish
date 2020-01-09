@@ -1,4 +1,7 @@
-# Defined in - @ line 1
-function copy --description 'alias copy=xclip -selection clipboard'
-	xclip -selection clipboard $argv;
+function copy --argument filename
+	if type -q pbcopy
+			cat $argv | pbcopy
+	else
+		xclip -selection clipboard $argv
+	end
 end

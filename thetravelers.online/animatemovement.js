@@ -24,6 +24,9 @@ overflow: hidden !important;
 animation: none !important;
 transform: none !important;
 }
+.nogo .worldtile{
+animation-duration: 0s !important;
+}
 ` +
         [
           ["upleft", "-", "-"],
@@ -68,7 +71,9 @@ transform: translate(0, 0);}
     console.log("going", newDir);
     worldBox.classList.remove("go_" + prevDir);
     prevDir = newDir;
+    worldBox.classList.add("nogo");
     worldBox.classList.add("go_" + prevDir);
+    setTimeout(() => worldBox.classList.remove("nogo"), 1000);
   };
 
   window.interval = setInterval(() => {

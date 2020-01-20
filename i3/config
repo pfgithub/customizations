@@ -45,9 +45,9 @@ bindsym $mod+Return exec --no-startup-id xfce4-terminal
 # kill focused window
 bindsym $mod+Shift+q kill
 
-# swap windows (mod+x cut mod+v swap)
+# swap windows (mod+x cut mod+c swap)
 bindsym --whole-window $mod+x mark --add quickswap
-bindsym --whole-window $mod+v swap container with mark quickswap; [con_mark="quickswap"] focus
+bindsym --whole-window $mod+c swap container with mark quickswap; [con_mark="quickswap"] focus
 
 # start dmenu (a program launcher)
 # bindsym $mod+d exec dmenu_run

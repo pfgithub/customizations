@@ -45,6 +45,10 @@ bindsym $mod+Return exec --no-startup-id xfce4-terminal
 # kill focused window
 bindsym $mod+Shift+q kill
 
+# focus up/down
+bindsym $mod+a focus parent
+bindsym $mod+d focus child
+
 # swap windows (mod+x cut mod+c swap)
 bindsym --whole-window $mod+x mark --add quickswap
 bindsym --whole-window $mod+c swap container with mark quickswap; [con_mark="quickswap"] focus

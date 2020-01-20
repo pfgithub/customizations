@@ -45,6 +45,10 @@ bindsym $mod+Return exec --no-startup-id xfce4-terminal
 # kill focused window
 bindsym $mod+Shift+q kill
 
+# swap windows (mod+x cut mod+v swap)
+bindsym --whole-window $mod+x mark --add quickswap
+bindsym --whole-window $mod+v swap container with mark quickswap; [con_mark="quickswap"] focus
+
 # start dmenu (a program launcher)
 # bindsym $mod+d exec dmenu_run
 
@@ -61,24 +65,12 @@ bindsym $mod+p exec --no-startup-id xfce4-find-cursor
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
 # change focus
-bindsym $mod+a focus left
-bindsym $mod+s focus down
-bindsym $mod+w focus up
-bindsym $mod+d focus right
-
-# alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
 bindsym $mod+Down focus down
 bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 
 # move focused window
-bindsym $mod+Shift+a move left
-bindsym $mod+Shift+s move down
-bindsym $mod+Shift+w move up
-bindsym $mod+Shift+d move right
-
-# alternatively, you can use the cursor keys:
 bindsym $mod+Shift+Left move left
 bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Up move up

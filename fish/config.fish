@@ -1,7 +1,3 @@
-function onch
-	onchange (for file in (find . -type f -not -path './node_modules*' -not -path '*.git*' -not -path './junk*'); git check-ignore $file -q; if test $status -eq 0; else; echo $file; end; end && echo "Ready" 1>&2) -- prettier --write '{{changed}}'	
-end
-
 # This is meant to be bound to something like \cC.
 function __fish_cancel_commandline
     # Close the pager if it's open (#4298)

@@ -7,5 +7,5 @@ function onch
         end
         set tracked (git-ls-tracked)
         echo "Ready!"
-        onchange $tracked -- fish -c (echo $cmd)
+        onchange $tracked -- (call $cmd)
 end

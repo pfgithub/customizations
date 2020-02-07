@@ -11,7 +11,7 @@ window.__style.appendChild(document.createTextNode(`
 .compact-T3H92H{
 padding-top: 0;
 padding-bottom: 0;
-margin-top: -0.3rem
+margin-top: -0.3rem;
 }
 
 .compact-T3H92H.groupStart-23k01U{

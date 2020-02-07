@@ -1,0 +1,1 @@
+keeps the good parts of the new ui (lighter mention highlights, nicer new messages line, smaller reaction padding) while removing the bad parts (message hover color, useless suggested reactions on hover, no clear indicaton of message groups in compact mode, weird spacing between messages)

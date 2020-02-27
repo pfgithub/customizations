@@ -4,6 +4,10 @@ usage: open your browser console, ignore the gigantic hold up message (actually 
 
 if it doesn't work: maybe discord class ids changed.
 
-![screenshot](https://i.imgur.com/peK42Cz.png)
+this script:  
+![screenshot](https://i.imgur.com/2g2GRTj.png)
+
+discord default:  
+![screenshot](https://i.imgur.com/tX6niGT.png)
 
 bugs: the yellow thing overlaps sometimes

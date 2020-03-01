@@ -1,3 +1,6 @@
 include "%L"
 
-<Multi_key> <semicolon> <semicolon> : "·"
+<Multi_key> <semicolon> <semicolon> : "·" # Unnecessary, ralt.- is good enough.
+<Multi_key> <O> <period> : "Ꙩ"
+<Multi_key> <o> <period> : "ꙩ"
+<Multi_key> <asciitilde> <equal> : "≈"

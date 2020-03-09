@@ -17,9 +17,5 @@ margin-top: -0.3rem;
 .compact-T3H92H.groupStart-23k01U{
 margin-top: 0.5rem;
 }
-
-.buttons-cl5qTG.container-3npvBV{
-display: none;
-}
 `));
 document.head.appendChild(window.__style);

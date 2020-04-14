@@ -162,10 +162,3 @@ bindsym $mod+Shift+r move container to workspace $wsR
 # mod+Shift+b, mod+Shift+n — disa[b]le/e[n]able borders on focused window
 bindsym $mod+Shift+b border pixel 0
 bindsym $mod+Shift+n border pixel 1
-
-# ==============
-# Old/Unused
-# ==============
-
-# launch layout switcher
-# bindsym $mod+Shift+l exec ~/.config/i3/layouts/layout.sh

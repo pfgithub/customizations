@@ -8,6 +8,10 @@ configuration files for the fish shell
 - `call` to create a fish -c to call fish functions from programs that exec other programs. for example with onchange, `onchange \*.zig -- (call zig-fmt '{{changed}}')`
 - `format` to format code (`.zig` with zig fmt, `.cpp`, `.c`, `.h`, `.hpp` with clang-format, everything else with a global prettier installation)
 - `onch` to apply an onchange watcher to all tracked files. does not auto update so it has to be restarted if files change. this doesn't work very well for zig code because zig run seems to mess with files somehow.
+- `mkcd` to make a directory and cd to it. uses `mkdir -p`, so supports creating subdirectories. if multiple directories are specified, the last one will be cded to.
+- `mktemp` to make a temp directory and cd to it in `~/Dev/Node/temp/generated/fdsanjkdnjfklaln`. does not `mkdir -p`, so it requires that you have a `~/Dev/Node/temp/generated` directory before use.
+
+init script will make a temp directory if fish is launched and your cwd is at `~/Dev/Node/temp/waiting` 
 
 prompt theme and motd is managed by oh-my-fish. screenshot is using `omf t bobthefish` with Iosevka Custom Regular 9pt on xfce4-terminal.
 

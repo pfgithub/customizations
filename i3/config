@@ -68,7 +68,7 @@ bindsym $alt+Tab exec --no-startup-id rofi -show window
 
 # alt+l, alt+shift+l — unicode character entry (shift to copy character, noshift to type character)
 bindsym $mod+l exec --no-startup-id fish -c 'xdotool type (unipicker --command "rofi -dmenu")'
-bindsym $mod+Shift+l exec --no-startup-id fish -c 'unipicker --command "rofi -dmenu" | copy'
+bindsym $mod+Shift+l exec --no-startup-id fish -c 'echo -n (unipicker --command "rofi -dmenu") | copy'
 
 # mod+arrows — move focus to a container vaguely related to the direction you press
 bindsym $mod+Left focus left

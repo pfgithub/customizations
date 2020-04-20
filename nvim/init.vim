@@ -10,3 +10,7 @@ set list
 
 au VimLeave * set guicursor=a:ver1-blinkon0
 nnoremap <CR> :noh<CR><CR>
+
+nnoremap d "_d
+vnoremap d "_d
+" use x to cut

@@ -14,3 +14,10 @@ nnoremap <CR> :noh<CR><CR>
 nnoremap d "_d
 vnoremap d "_d
 " use x to cut
+
+set autoread
+au FocusGained * :checktime
+
+" vvvvv doesn't work for some reason, idk why
+"au FileType lang set filetype=resyn
+autocmd BufRead,BufNewFile *.lang set filetype=resyn

@@ -15,6 +15,8 @@ nnoremap d "_d
 vnoremap d "_d
 " use x to cut
 
+nnoremap , @a
+
 set autoread
 au FocusGained * :checktime
 

@@ -34,6 +34,7 @@ exec --no-startup-id setxkbmap -option keypad:pointerkeys
 exec --no-startup-id setxkbmap -option compose:ralt
 exec --no-startup-id xmodmap -e "keycode 135 = Multi_key Multi_key Multi_key Multi_key"
 exec --no-startup-id xmodmap -e "keycode 66 = Delete NoSymbol Delete"
+exec --no-startup-id fish -c "while clipnotify; notify-send 'Clipboard Changed' -i notifications -t 500; end"
 
 # other programs.
 # start xfce4-notifyd because one update it randomly decided not to start and no notifyd = every program hangs when it tries to send a notification and the entire system is broken. note that with full notification logging, notification sending will get progressively slower over time (it can take more than 500ms to send a notification) and because apps freeze while sending notifications, this can cause app unresponsiveness. if you are noticing app unresponsiveness check, time notify-send a -i notifications. this issue is because xfce4-notifyd logs notifications by parsing the entire previous log into dictionaries, adding a single entry to the end, and then re-printing the entire file. instead of appending to the file. to work around this, occasionally go to ~/.cache/xfce4/notifyd and mv log somewhere. a new log will be created. (or actually fix the problem in the xfce source code, that works too)
@@ -66,9 +67,12 @@ bindsym $mod+space exec --no-startup-id xfce4-popup-whiskermenu
 # alt+tab — remind you to not press alt+tab by showing a useless and painful alt+tab menu
 bindsym $alt+Tab exec --no-startup-id rofi -show window
 
-# alt+l, alt+shift+l — unicode character entry (shift to copy character, noshift to type character)
+# mod+l, mod+shift+l — unicode character entry (shift to copy character, noshift to type character)
 bindsym $mod+l exec --no-startup-id fish -c 'xdotool type (unipicker --command "rofi -dmenu")'
-bindsym $mod+Shift+l exec --no-startup-id fish -c 'echo -n (unipicker --command "rofi -dmenu") | copy && notify-send Copied (paste) -i notifications'
+bindsym $mod+Shift+l exec --no-startup-id fish -c 'set text (unipicker --command "rofi -dmenu") && [ $text != "" ] && copytxt $text'
+
+# mod+shift+v — type clipboard contents
+bindsym --release $mod+Shift+v exec fish -c 'sleep 0.5 && xdotool type (paste)'
 
 # mod+arrows — move focus to a container vaguely related to the direction you press
 bindsym $mod+Left focus left

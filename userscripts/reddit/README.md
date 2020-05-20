@@ -14,6 +14,8 @@ issues:
 
 - many links that should be normal actually pushstate (user profile pages and subreddit sorting options)
 - adds a horizontal scrollbar to the page with blank content
+- very buggy with back and forwards button sometimes
+- stylesheet is broken with custom subreddit styles and sometimes broken with extra sidebar things because it was written badly
 
 screenshots:
 

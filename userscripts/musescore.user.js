@@ -4,7 +4,7 @@
 // @version      0.1
 // @description  MuseScore Comment Helper
 // @author       pfg
-// @match        https://musescore.org/*
+// @match        *://musescore.org/*
 // @grant        none
 // ==/UserScript==
 {
@@ -18,7 +18,7 @@
     return elm;
   };
 
-  let css = (a) => a[0];
+  let css = a => a[0];
   let styl = css`
     .indented {
       position: relative;

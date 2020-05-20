@@ -11,7 +11,7 @@ configuration files for the fish shell
 - `mkcd` to make a directory and cd to it. uses `mkdir -p`, so supports creating subdirectories. if multiple directories are specified, the last one will be cded to.
 - `mktemp` to make a temp directory -p and cd to it in `~/Dev/Node/temp/generated/fdsanjkdnjfklaln/tmp`.
 
-init script will make a temp directory if fish is launched and your cwd is at `~/Dev/Node/temp/waiting` 
+init script will make a temp directory if fish is launched and your cwd is at `~/Dev/Node/temp/waiting`
 
 prompt theme and motd is managed by oh-my-fish. screenshot is using `omf t bobthefish` with Iosevka Custom Regular 9pt on xfce4-terminal.
 

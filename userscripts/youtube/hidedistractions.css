@@ -1,0 +1,52 @@
+/*apply to: URLs on the domain: youtube.com*/
+/*hides all related videos on youtube and blanks out the home page*/
+
+/*hide homepage*/
+ytd-two-column-browse-results-renderer.style-scope[page-subtype="home"] {
+  display: none !important;
+}
+/*hide notifications*/
+#secondary.style-scope.ytd-watch-flexy,
+.style-scope.ytd-notification-topbar-button-renderer.notification-button-style-type-default,
+#guide-button,
+#logo {
+  display: none;
+}
+/*hide all toolbar buttons*/
+ytd-notification-topbar-button-renderer,
+ytd-topbar-menu-button-renderer {
+  display: none !important;
+}
+
+/*hide sidebar*/
+#guide {
+  display: none;
+}
+
+/*--------------- unrelated styles ------------------------*/
+
+ytd-searchbox[mode="legacy"] #container.ytd-searchbox,
+ytd-searchbox[mode="legacy-centered"] #container.ytd-searchbox {
+  border: none;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+#search-icon-legacy.ytd-searchbox {
+  border: none;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+#search-form {
+  max-width: unset !important;
+}
+ytd-button-renderer,
+paper-button {
+  border-radius: 10px !important;
+}
+ytd-multi-page-menu-renderer {
+  border-radius: 10px !important;
+}
+paper-button.ytd-subscribe-button-renderer {
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+  background-image: linear-gradient(to right, #e00, #b00);
+}

@@ -19,7 +19,7 @@ margin-top: 0.5rem;
 }
 
 .imageAccessory-3uSIjZ + video {
-opacity: 0.01;
+opacity: 0;
 transition: 0.1s opacity;
 }
 .imageAccessory-3uSIjZ + video:hover {

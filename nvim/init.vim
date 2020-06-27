@@ -8,6 +8,9 @@ set noswapfile
 set listchars=eol: ,tab:⇥ ,trail:·,extends:>,precedes:<,space: 
 set list
 
+command! W write
+" I typo this so often
+
 au VimLeave * set guicursor=a:ver1-blinkon0
 nnoremap <CR> :noh<CR><CR>
 

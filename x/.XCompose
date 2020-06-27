@@ -11,6 +11,7 @@ include "%L"
 <Multi_key> <bar> <u> : "μ"
 <Multi_key> <p> <i> : "π"
 <Multi_key> <P> <I> : "Π"
+<Multi_key> <n> <a> <n> <i> : "何"
 
 
 # GREEK CAPITAL LETTERS

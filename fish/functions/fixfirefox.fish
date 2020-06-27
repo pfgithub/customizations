@@ -7,7 +7,7 @@ function fixfirefox --description "fix firefox url bar click behaviour"
     mkdir omni
     unzip -q /usr/lib/firefox/browser/omni.ja -d omni
     sed -i 's/this\._preventClickSelectsAll = this\.focused;/this._preventClickSelectsAll = true;/' omni/modules/UrlbarInput.jsm
-    sed -i 's/this\._preventClickSelectsAll = this\._textbox\.focused;/this._preventClickSelectsAll = true;/'  omni/chrome/browser/content/browser/search/searchbar.js
+    sed -i 's/this\._preventClickSelectsAll = this\._textbox\.focused;/this._preventClickSelectsAll = true;/' omni/chrome/browser/content/browser/search/searchbar.js
     cd omni
     zip -qr9XD omni.ja *
     cd ..

@@ -1,8 +1,7 @@
 window.__style && window.__style.remove();
 window.__style = document.createElement("style");
 
-window.__style.appendChild(
-  document.createTextNode(`
+window.__style.appendChild(document.createTextNode(`
 :root{
 --background-modifier-hover: rgba(79,84,92,0);
 --background-mentioned-hover: rgba(250,166,26,0.05);
@@ -18,6 +17,13 @@ margin-top: -0.3rem;
 .compact-T3H92H.groupStart-23k01U{
 margin-top: 0.5rem;
 }
-`)
-);
+
+.imageAccessory-3uSIjZ + video {
+opacity: 0;
+transition: 0.1s opacity;
+}
+.imageAccessory-3uSIjZ + video:hover {
+opacity: 1;
+}
+`));
 document.head.appendChild(window.__style);

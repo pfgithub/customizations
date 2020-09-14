@@ -12,6 +12,34 @@ include "%L"
 <Multi_key> <p> <i> : "π"
 <Multi_key> <P> <I> : "Π"
 <Multi_key> <n> <a> <n> <i> : "何"
+<Multi_key> <space> <space> : "​"
+<Multi_key> <exclam> <equal> : "≠" # I always try this before =/
+<Multi_key> <C> <D> : "ↀ"
+<Multi_key> <D> <D> : "ↁ"
+<Multi_key> <C> <C> <D> <D> : "ↂ"
+
+
+# Fractions
+<Multi_key> <slash> <slash> : "⁄" # ^4 // _3 = ⁴⁄₃
+<Multi_key> <1> <slash> <2> : "½"
+<Multi_key> <1> <slash> <3> : "⅓"
+<Multi_key> <2> <slash> <3> : "⅔"
+<Multi_key> <1> <slash> <4> : "¼"
+<Multi_key> <3> <slash> <4> : "¾"
+<Multi_key> <1> <slash> <5> : "⅕"
+<Multi_key> <2> <slash> <5> : "⅖"
+<Multi_key> <3> <slash> <5> : "⅗"
+<Multi_key> <4> <slash> <5> : "⅘"
+<Multi_key> <1> <slash> <6> : "⅙"
+<Multi_key> <5> <slash> <6> : "⅚"
+<Multi_key> <1> <slash> <7> : "⅐"
+<Multi_key> <1> <slash> <8> : "⅛"
+<Multi_key> <3> <slash> <8> : "⅜"
+<Multi_key> <5> <slash> <8> : "⅝"
+<Multi_key> <7> <slash> <8> : "⅞"
+<Multi_key> <1> <slash> <9> : "⅑"
+<Multi_key> <1> <slash> <1> <0> : "⅒"
+<Multi_key> <1> <slash> <slash> : "⅟"
 
 
 # GREEK CAPITAL LETTERS

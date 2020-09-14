@@ -112,6 +112,9 @@ bindsym $mod+y layout toggle split
 # mod+Shift+u — toggle floating on the active window or container
 bindsym $mod+Shift+u floating toggle
 
+# mod+Shift+escape - open xfce4-taskmanager
+bindsym $mod+Shift+Escape exec --no-startup-id xfce4-taskmanager
+
 # change focus between tiling / floating windows
 #bindsym $mod+t focus mode_toggle
 

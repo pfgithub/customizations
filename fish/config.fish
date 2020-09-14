@@ -1,6 +1,7 @@
 source ~/.config/fish/personal_config.fish
 
 set -g theme_nerd_fonts yes
+set -g theme_display_date no
 functions -c __bobthefish_glyphs __bobthefish_glyphs__base
 function __bobthefish_glyphs -S
     __bobthefish_glyphs__base
@@ -8,7 +9,8 @@ function __bobthefish_glyphs -S
     set -x detached_glyph \u27A6
     set -x tag_glyph \u2302
 end
-function fish_right_prompt
+function __bobthefish_timestamp
+    echo "no"
 end
 
 function __fish_cancel_commandline

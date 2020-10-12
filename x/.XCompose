@@ -17,7 +17,399 @@ include "%L"
 <Multi_key> <C> <D> : "ↀ"
 <Multi_key> <D> <D> : "ↁ"
 <Multi_key> <C> <C> <D> <D> : "ↂ"
+<Multi_key> <b> <l> : "Ы"
+<Multi_key> <s> <i> <g> <m> <a> : "∑"
+<Multi_key> <bar> <s> : "∫" # int is taken already
+<Multi_key> <n> <o> <t> : "¬" # also -,
+<Multi_key> <colon> <equal> : "≔"
+<Multi_key> <s> <q> <r> <t> : "√" # v/ also which is easier
+<Multi_key> <c> <x> : "🗙"
+<Multi_key> <c> <v> : "✓"
+<Multi_key> <a> <A> : "🗚"
+<Multi_key> <A> <a> : "🗛"
+<Multi_key> <O> <plus> : "⊕"
+<Multi_key> <e> <a> : "ᴂ" # ea sports it's in the game
+<Multi_key> <E> <t> : "🙲"
+<Multi_key> <e> <t> : "🙰"
+<Multi_key> <a> <period> <period> <period> : "⎁"
 
+<Multi_key> <bar> <greater> : "▸"
+<Multi_key> <less> <bar> : "◂"
+<Multi_key> <underscore> <asciicircum> : "▴"
+<Multi_key> <asciicircum> <underscore> : "▴"
+<Multi_key> <minus> <v> : "▾"
+<Multi_key> <v> <minus> : "▾"
+
+<Multi_key> <minus> <equal> : "≡"
+<Multi_key> <equal> <minus> : "≡"
+
+<Multi_key> <grave> <grave> : "´"
+<Multi_key> <asciitilde> <asciitilde> : "∽"
+
+# Keyboard
+<Multi_key> <c> <t> <r> <l> : "⌃"
+<Multi_key> <a> <l> <t> : "⎇"
+<Multi_key> <o> <p> <t> : "⌥"
+<Multi_key> <w> <i> <n> : "❖"
+<Multi_key> <c> <m> <d> : "⌘"
+<Multi_key> <c> <a> <p> <s> : "⇪"
+<Multi_key> <s> <h> <i> <f> <t> : "⇧"
+<Multi_key> <s> <h> <f> <t> : "⇧"
+<Multi_key> <r> <e> <t> : "⏎"
+<Multi_key> <t> <a> <b> : "⇥"
+<Multi_key> <e> <s> <c> : "⎋"
+<Multi_key> <d> <e> <l> : "⌦"
+<Multi_key> <f> <w> <d> <e> <l> : "⌦"
+<Multi_key> <b> <k> <s> <p> : "⌫"
+
+# Hexagrams
+<Multi_key> <H> <h> <A> : "䷑"
+<Multi_key> <H> <h> <B> : "䷔"
+<Multi_key> <H> <h> <H> : "䷎"
+<Multi_key> <H> <h> <M> : "䷇"
+<Multi_key> <H> <h> <N> : "䷛"
+<Multi_key> <H> <h> <n> : "䷖"
+<Multi_key> <H> <h> <O> : "䷚"
+<Multi_key> <H> <h> <U> : "䷗"
+<Multi_key> <H> <h> <W> : "䷆"
+
+# Tetragrams
+<Multi_key> <T> <t> <A> : "𝌐"
+<Multi_key> <T> <t> <M> : "𝌩"
+<Multi_key> <T> <t> <U> : "𝌭"
+<Multi_key> <T> <t> <H> : "𝌫"
+<Multi_key> <T> <t> <N> : "𝌢"
+<Multi_key> <T> <t> <O> : "𝌒"
+<Multi_key> <T> <t> <n> : "𝌓"
+<Multi_key> <T> <t> <W> : "𝍏"
+
+# Units
+<Multi_key> <n> <m> : "㎚"
+<Multi_key> <u> <m> : "㎛"
+<Multi_key> <m> <m> : "㎜"
+<Multi_key> <2> <m> <m> : "㎟"
+<Multi_key> <3> <m> <m> : "㎣"
+<Multi_key> <c> <m> : "㎝"
+<Multi_key> <2> <c> <m> : "㎠"
+<Multi_key> <3> <c> <m> : "㎤"
+<Multi_key> <m> <2> : "㎡"
+<Multi_key> <m> <3> : "㎥"
+<Multi_key> <k> <m> : "㎞"
+<Multi_key> <2> <k> <m> : "㎢"
+<Multi_key> <3> <k> <m> : "㎦"
+<Multi_key> <i> <n> : "㏌"
+<Multi_key> <u> <l> : "㎕"
+<Multi_key> <m> <l> : "㎖"
+<Multi_key> <d> <l> : "㎗"
+<Multi_key> <k> <l> : "㎘"
+<Multi_key> <c> <c> : "㏄"
+<Multi_key> <p> <s> : "㎰"
+<Multi_key> <n> <s> : "㎱"
+<Multi_key> <u> <s> : "㎲"
+<Multi_key> <m> <s> : "㎳"
+<Multi_key> <u> <g> : "㎍"
+<Multi_key> <m> <g> : "㎎"
+<Multi_key> <k> <g> : "㎏"
+<Multi_key> <K> <B> : "㎅"
+<Multi_key> <M> <B> : "㎆"
+<Multi_key> <m> <b> : "㏔"
+<Multi_key> <G> <B> : "㎇"
+<Multi_key> <H> <z> : "㎐"
+<Multi_key> <k> <H> <z> : "㎑"
+<Multi_key> <M> <H> <z> : "㎒"
+<Multi_key> <G> <H> <z> : "㎓"
+<Multi_key> <T> <H> <z> : "㎔"
+<Multi_key> <p> <V> : "㎴"
+<Multi_key> <n> <V> : "㎵"
+<Multi_key> <u> <V> : "㎶"
+<Multi_key> <m> <V> : "㎷"
+<Multi_key> <k> <V> : "㎸"
+<Multi_key> <M> <V> : "㎹"
+<Multi_key> <p> <W> : "㎺"
+<Multi_key> <n> <W> : "㎻"
+<Multi_key> <u> <W> : "㎼"
+<Multi_key> <m> <W> : "㎽"
+<Multi_key> <k> <W> : "㎾"
+<Multi_key> <M> <W> : "㎿"
+<Multi_key> <k> <O> : "㏀"
+<Multi_key> <M> <O> : "㏁"
+<Multi_key> <p> <A> : "㎀"
+<Multi_key> <n> <A> : "㎁"
+<Multi_key> <u> <A> : "㎂"
+<Multi_key> <m> <A> : "㎃"
+<Multi_key> <k> <A> : "㎄"
+<Multi_key> <m> <slash> <s> : "㎧"
+<Multi_key> <m> <slash> <2> <s> : "㎨"
+<Multi_key> <r> <a> <d> : "㎭"
+<Multi_key> <r> <a> <slash> <s> : "㎮"
+<Multi_key> <r> <a> <slash> <2> <s> : "㎯"
+<Multi_key> <P> <a> : "㎩"
+<Multi_key> <k> <P> <a> : "㎪"
+<Multi_key> <M> <P> <a> : "㎫"
+<Multi_key> <G> <P> <a> : "㎬"
+<Multi_key> <c> <a> <l> : "㎈"
+<Multi_key> <k> <c> <a> <l> : "㎉"
+<Multi_key> <d> <m> : "㍷"
+<Multi_key> <2> <d> <m> : "㍸"
+<Multi_key> <3> <d> <m> : "㍹"
+<Multi_key> <m> <i> <l> : "㏕"
+<Multi_key> <f> <m> : "㎙"
+<Multi_key> <A> <U> : "㍳"
+<Multi_key> <d> <B> : "㏈"
+<Multi_key> <l> <n> : "㏑"
+<Multi_key> <l> <o> <g> : "㏒"
+<Multi_key> <a> <m> : "㏂"
+<Multi_key> <p> <m> : "㏘"
+<Multi_key> <P> <P> <M> : "㏙"
+<Multi_key> <h> <P> <a> : "㍱"
+<Multi_key> <d> <a> : "㍲"
+<Multi_key> <b> <a> <r> : "㍴"
+<Multi_key> <o> <V> : "㍵"
+<Multi_key> <p> <c> : "㍶"
+<Multi_key> <I> <U> : "㍺"
+<Multi_key> <p> <F> : "㎊"
+<Multi_key> <n> <F> : "㎋"
+<Multi_key> <u> <F> : "㎌"
+<Multi_key> <B> <q> : "㏃"
+<Multi_key> <c> <d> : "㏅"
+<Multi_key> <C> <slash> <k> <g> : "㏆"
+<Multi_key> <C> <o> : "㏇"
+<Multi_key> <G> <y> : "㏉"
+<Multi_key> <h> <a> : "㏊"
+<Multi_key> <H> <P> : "㏋"
+<Multi_key> <K> <K> : "㏍"
+<Multi_key> <K> <M> : "㏎"
+<Multi_key> <k> <t> : "㏏"
+<Multi_key> <l> <m> : "㏐"
+<Multi_key> <l> <x> : "㏓"
+<Multi_key> <m> <o> <l> : "㏖"
+<Multi_key> <p> <H> : "㏗"
+<Multi_key> <P> <R> : "㏚"
+<Multi_key> <s> <r> : "㏛"
+<Multi_key> <S> <v> : "㏜"
+<Multi_key> <W> <b> : "㏝"
+<Multi_key> <V> <slash> <m> : "㏞"
+<Multi_key> <A> <slash> <m> : "㏟"
+<Multi_key> <g> <a> <l> : "㏿"
+
+# IPA
+<Multi_key> <3> <3> : "ʒ"
+<Multi_key> <E> <E> : "ɛ"
+<Multi_key> <I> <I> : "ɪ"
+<Multi_key> <v> <v> : "ᴧ"
+<Multi_key> <u> <o> : "ʊ"
+<Multi_key> <colon> <colon> : "ː"
+
+# Compose sequences which outputs strings (as opposed to just boring characters) seem to work in some applications.
+<Multi_key> <g> <i> <f> : "gɪf"
+<Multi_key> <d> <3> <i> <f> : "dʒɪf"
+<Multi_key> <j> <i> <f> : "dʒɪf"
+
+# Cards
+<Multi_key> <k> <A> <S> : "🂡"
+<Multi_key> <k> <2> <S> : "🂢"
+<Multi_key> <k> <3> <S> : "🂣"
+<Multi_key> <k> <4> <S> : "🂤"
+<Multi_key> <k> <5> <S> : "🂥"
+<Multi_key> <k> <6> <S> : "🂦"
+<Multi_key> <k> <7> <S> : "🂧"
+<Multi_key> <k> <8> <S> : "🂨"
+<Multi_key> <k> <9> <S> : "🂩"
+<Multi_key> <k> <0> <S> : "🂪"
+<Multi_key> <k> <J> <S> : "🂫"
+<Multi_key> <k> <C> <S> : "🂬"
+<Multi_key> <k> <Q> <S> : "🂭"
+<Multi_key> <k> <K> <S> : "🂮"
+<Multi_key> <k> <A> <H> : "🂱"
+<Multi_key> <k> <2> <H> : "🂲"
+<Multi_key> <k> <3> <H> : "🂳"
+<Multi_key> <k> <4> <H> : "🂴"
+<Multi_key> <k> <5> <H> : "🂵"
+<Multi_key> <k> <6> <H> : "🂶"
+<Multi_key> <k> <7> <H> : "🂷"
+<Multi_key> <k> <8> <H> : "🂸"
+<Multi_key> <k> <9> <H> : "🂹"
+<Multi_key> <k> <0> <H> : "🂺"
+<Multi_key> <k> <J> <H> : "🂻"
+<Multi_key> <k> <C> <H> : "🂼"
+<Multi_key> <k> <Q> <H> : "🂽"
+<Multi_key> <k> <K> <H> : "🂾"
+<Multi_key> <k> <A> <D> : "🃁"
+<Multi_key> <k> <2> <D> : "🃂"
+<Multi_key> <k> <3> <D> : "🃃"
+<Multi_key> <k> <4> <D> : "🃄"
+<Multi_key> <k> <5> <D> : "🃅"
+<Multi_key> <k> <6> <D> : "🃆"
+<Multi_key> <k> <7> <D> : "🃇"
+<Multi_key> <k> <8> <D> : "🃈"
+<Multi_key> <k> <9> <D> : "🃉"
+<Multi_key> <k> <0> <D> : "🃊"
+<Multi_key> <k> <J> <D> : "🃋"
+<Multi_key> <k> <C> <D> : "🃌"
+<Multi_key> <k> <Q> <D> : "🃍"
+<Multi_key> <k> <K> <D> : "🃎"
+<Multi_key> <k> <A> <C> : "🃑"
+<Multi_key> <k> <2> <C> : "🃒"
+<Multi_key> <k> <3> <C> : "🃓"
+<Multi_key> <k> <4> <C> : "🃔"
+<Multi_key> <k> <5> <C> : "🃕"
+<Multi_key> <k> <6> <C> : "🃖"
+<Multi_key> <k> <7> <C> : "🃗"
+<Multi_key> <k> <8> <C> : "🃘"
+<Multi_key> <k> <9> <C> : "🃙"
+<Multi_key> <k> <0> <C> : "🃚"
+<Multi_key> <k> <J> <C> : "🃛"
+<Multi_key> <k> <C> <C> : "🃜"
+<Multi_key> <k> <Q> <C> : "🃝"
+<Multi_key> <k> <K> <C> : "🃞"
+# {
+# const res = [];
+# const SUITS = "SHDC".split("");
+# const CARDS = "A234567890JCQK".split("");
+# for(const [i, suit] of SUITS.entries()) {
+# for(const [j, card] of CARDS.entries()) {
+# const cpnum = 127137 + i * (CARDS.length + 2) + j;
+# const cardface = String.fromCodePoint(cpnum);
+# const cardtext = `<Multi_key> <k> <${card}> <${suit}> : "${cardface}"`;
+# res.push(cardtext);
+#
+# }}
+# copy(res.join("\n"))
+#                      }
+
+# Dominoes
+<Multi_key> <d> <0> <minus> <0> : "🁣"
+<Multi_key> <d> <0> <minus> <1> : "🁤"
+<Multi_key> <d> <0> <minus> <2> : "🁥"
+<Multi_key> <d> <0> <minus> <3> : "🁦"
+<Multi_key> <d> <0> <minus> <4> : "🁧"
+<Multi_key> <d> <0> <minus> <5> : "🁨"
+<Multi_key> <d> <0> <minus> <6> : "🁩"
+<Multi_key> <d> <1> <minus> <0> : "🁪"
+<Multi_key> <d> <1> <minus> <1> : "🁫"
+<Multi_key> <d> <1> <minus> <2> : "🁬"
+<Multi_key> <d> <1> <minus> <3> : "🁭"
+<Multi_key> <d> <1> <minus> <4> : "🁮"
+<Multi_key> <d> <1> <minus> <5> : "🁯"
+<Multi_key> <d> <1> <minus> <6> : "🁰"
+<Multi_key> <d> <2> <minus> <0> : "🁱"
+<Multi_key> <d> <2> <minus> <1> : "🁲"
+<Multi_key> <d> <2> <minus> <2> : "🁳"
+<Multi_key> <d> <2> <minus> <3> : "🁴"
+<Multi_key> <d> <2> <minus> <4> : "🁵"
+<Multi_key> <d> <2> <minus> <5> : "🁶"
+<Multi_key> <d> <2> <minus> <6> : "🁷"
+<Multi_key> <d> <3> <minus> <0> : "🁸"
+<Multi_key> <d> <3> <minus> <1> : "🁹"
+<Multi_key> <d> <3> <minus> <2> : "🁺"
+<Multi_key> <d> <3> <minus> <3> : "🁻"
+<Multi_key> <d> <3> <minus> <4> : "🁼"
+<Multi_key> <d> <3> <minus> <5> : "🁽"
+<Multi_key> <d> <3> <minus> <6> : "🁾"
+<Multi_key> <d> <4> <minus> <0> : "🁿"
+<Multi_key> <d> <4> <minus> <1> : "🂀"
+<Multi_key> <d> <4> <minus> <2> : "🂁"
+<Multi_key> <d> <4> <minus> <3> : "🂂"
+<Multi_key> <d> <4> <minus> <4> : "🂃"
+<Multi_key> <d> <4> <minus> <5> : "🂄"
+<Multi_key> <d> <4> <minus> <6> : "🂅"
+<Multi_key> <d> <5> <minus> <0> : "🂆"
+<Multi_key> <d> <5> <minus> <1> : "🂇"
+<Multi_key> <d> <5> <minus> <2> : "🂈"
+<Multi_key> <d> <5> <minus> <3> : "🂉"
+<Multi_key> <d> <5> <minus> <4> : "🂊"
+<Multi_key> <d> <5> <minus> <5> : "🂋"
+<Multi_key> <d> <5> <minus> <6> : "🂌"
+<Multi_key> <d> <6> <minus> <0> : "🂍"
+<Multi_key> <d> <6> <minus> <1> : "🂎"
+<Multi_key> <d> <6> <minus> <2> : "🂏"
+<Multi_key> <d> <6> <minus> <3> : "🂐"
+<Multi_key> <d> <6> <minus> <4> : "🂑"
+<Multi_key> <d> <6> <minus> <5> : "🂒"
+<Multi_key> <d> <6> <minus> <6> : "🂓"
+<Multi_key> <d> <0> <bar> <0> : "🀱"
+<Multi_key> <d> <0> <bar> <1> : "🀲"
+<Multi_key> <d> <0> <bar> <2> : "🀳"
+<Multi_key> <d> <0> <bar> <3> : "🀴"
+<Multi_key> <d> <0> <bar> <4> : "🀵"
+<Multi_key> <d> <0> <bar> <5> : "🀶"
+<Multi_key> <d> <0> <bar> <6> : "🀷"
+<Multi_key> <d> <1> <bar> <0> : "🀸"
+<Multi_key> <d> <1> <bar> <1> : "🀹"
+<Multi_key> <d> <1> <bar> <2> : "🀺"
+<Multi_key> <d> <1> <bar> <3> : "🀻"
+<Multi_key> <d> <1> <bar> <4> : "🀼"
+<Multi_key> <d> <1> <bar> <5> : "🀽"
+<Multi_key> <d> <1> <bar> <6> : "🀾"
+<Multi_key> <d> <2> <bar> <0> : "🀿"
+<Multi_key> <d> <2> <bar> <1> : "🁀"
+<Multi_key> <d> <2> <bar> <2> : "🁁"
+<Multi_key> <d> <2> <bar> <3> : "🁂"
+<Multi_key> <d> <2> <bar> <4> : "🁃"
+<Multi_key> <d> <2> <bar> <5> : "🁄"
+<Multi_key> <d> <2> <bar> <6> : "🁅"
+<Multi_key> <d> <3> <bar> <0> : "🁆"
+<Multi_key> <d> <3> <bar> <1> : "🁇"
+<Multi_key> <d> <3> <bar> <2> : "🁈"
+<Multi_key> <d> <3> <bar> <3> : "🁉"
+<Multi_key> <d> <3> <bar> <4> : "🁊"
+<Multi_key> <d> <3> <bar> <5> : "🁋"
+<Multi_key> <d> <3> <bar> <6> : "🁌"
+<Multi_key> <d> <4> <bar> <0> : "🁍"
+<Multi_key> <d> <4> <bar> <1> : "🁎"
+<Multi_key> <d> <4> <bar> <2> : "🁏"
+<Multi_key> <d> <4> <bar> <3> : "🁐"
+<Multi_key> <d> <4> <bar> <4> : "🁑"
+<Multi_key> <d> <4> <bar> <5> : "🁒"
+<Multi_key> <d> <4> <bar> <6> : "🁓"
+<Multi_key> <d> <5> <bar> <0> : "🁔"
+<Multi_key> <d> <5> <bar> <1> : "🁕"
+<Multi_key> <d> <5> <bar> <2> : "🁖"
+<Multi_key> <d> <5> <bar> <3> : "🁗"
+<Multi_key> <d> <5> <bar> <4> : "🁘"
+<Multi_key> <d> <5> <bar> <5> : "🁙"
+<Multi_key> <d> <5> <bar> <6> : "🁚"
+<Multi_key> <d> <6> <bar> <0> : "🁛"
+<Multi_key> <d> <6> <bar> <1> : "🁜"
+<Multi_key> <d> <6> <bar> <2> : "🁝"
+<Multi_key> <d> <6> <bar> <3> : "🁞"
+<Multi_key> <d> <6> <bar> <4> : "🁟"
+<Multi_key> <d> <6> <bar> <5> : "🁠"
+<Multi_key> <d> <6> <bar> <6> : "🁡"
+# {
+# const dvertical = `
+# 🁣 🁤 🁥 🁦 🁧 🁨 🁩
+# 🁪 🁫 🁬 🁭 🁮 🁯 🁰
+# 🁱 🁲 🁳 🁴 🁵 🁶 🁷
+# 🁸 🁹 🁺 🁻 🁼 🁽 🁾
+# 🁿 🂀 🂁 🂂 🂃 🂄 🂅
+# 🂆 🂇 🂈 🂉 🂊 🂋 🂌
+# 🂍 🂎 🂏 🂐 🂑 🂒 🂓 
+# `.split("\n").map(q => q.trim()).filter(q => q)
+# .map((lyne, topnum) =>
+#    lyne.split(" ").map((char, btmnum) => {
+#       return `<Multi_key> <d> <${topnum}> <minus> <${btmnum}> : "${char}"`;
+#    })
+# ).flat().join("\n");
+# copy(dvertical);
+# }
+# {
+# const dhorizontal = `
+#  🀱 🀲 🀳 🀴 🀵 🀶 🀷
+# 🀸 🀹 🀺 🀻 🀼 🀽 🀾
+# 🀿 🁀 🁁 🁂 🁃 🁄 🁅
+# 🁆 🁇 🁈 🁉 🁊 🁋 🁌
+# 🁍 🁎 🁏 🁐 🁑 🁒 🁓
+# 🁔 🁕 🁖 🁗 🁘 🁙 🁚
+# 🁛 🁜 🁝 🁞 🁟 🁠 🁡 
+# `.split("\n").map(q => q.trim()).filter(q => q)
+# .map((lyne, topnum) =>
+#    lyne.split(" ").map((char, btmnum) => {
+#       return `<Multi_key> <d> <${topnum}> <bar> <${btmnum}> : "${char}"`;
+#    })
+# ).flat().join("\n");
+# copy(dhorizontal);
+# }
 
 # Fractions
 <Multi_key> <slash> <slash> : "⁄" # ^4 // _3 = ⁴⁄₃
@@ -41,16 +433,18 @@ include "%L"
 <Multi_key> <1> <slash> <1> <0> : "⅒"
 <Multi_key> <1> <slash> <slash> : "⅟"
 
+# semicolon (for programming)
+<Multi_key> <g> <question> : ";"
 
 # GREEK CAPITAL LETTERS
 <Multi_key> <G> <A> : "Α"    U0391    # GREEK CAPITAL LETTER ALPHA
-<Multi_key> <G> <B> : "Β"    U0392    # GREEK CAPITAL LETTER BETA
+#<Multi_key> <G> <B> : "Β"    U0392    # GREEK CAPITAL LETTER BETA
 <Multi_key> <G> <G> : "Γ"    U0393    # GREEK CAPITAL LETTER GAMMA
 <Multi_key> <G> <D> : "Δ"    U0394    # GREEK CAPITAL LETTER DELTA
 <Multi_key> <G> <E> : "Ε"    U0395    # GREEK CAPITAL LETTER EPSILON
 <Multi_key> <G> <Z> : "Ζ"    U0396    # GREEK CAPITAL LETTER ZETA
 <Multi_key> <G> <H> : "Η"    U0397    # GREEK CAPITAL LETTER ETA
-<Multi_key> <G> <I> : "Ι"    U0399    # GREEK CAPITAL LETTER IOTA
+#<Multi_key> <G> <I> : "Ι"    U0399    # GREEK CAPITAL LETTER IOTA
 <Multi_key> <G> <K> : "Κ"    U039A    # GREEK CAPITAL LETTER KAPPA
 <Multi_key> <G> <L> : "Λ"    U039B    # GREEK CAPITAL LETTER LAMDA
 <Multi_key> <G> <M> : "Μ"    U039C    # GREEK CAPITAL LETTER MU
@@ -78,7 +472,7 @@ include "%L"
 <Multi_key> <g> <e> : "ε"    U03B5    # GREEK SMALL LETTER EPSILON
 <Multi_key> <g> <z> : "ζ"    U03B6    # GREEK SMALL LETTER ZETA
 <Multi_key> <g> <h> : "η"    U03B7    # GREEK SMALL LETTER ETA
-<Multi_key> <g> <i> : "ι"    U03B9    # GREEK SMALL LETTER IOTA
+#<Multi_key> <g> <i> : "ι"    U03B9    # GREEK SMALL LETTER IOTA
 <Multi_key> <g> <k> : "κ"    U03BA    # GREEK SMALL LETTER KAPPA
 <Multi_key> <g> <l> : "λ"    U03BB    # GREEK SMALL LETTER LAMDA
 <Multi_key> <g> <m> : "μ"    U03BC    # GREEK SMALL LETTER MU

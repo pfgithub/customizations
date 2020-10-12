@@ -1,5 +1,8 @@
 source ~/.config/fish/personal_config.fish
 
+bind --user (echo -ne "\e")"[3;5~" kill-word
+bind --user (echo -ne "\x08") backward-kill-word
+
 set -g theme_nerd_fonts yes
 set -g theme_display_date no
 functions -c __bobthefish_glyphs __bobthefish_glyphs__base

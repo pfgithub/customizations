@@ -1,5 +1,5 @@
 const fs = require("fs");
-const composefile = fs.readFileSync(__dirname + "/.XCompose", "utf-8");
+const composefile = "\n\n" + fs.readFileSync(__dirname + "/.XCompose", "utf-8") + "\n\n## Builtin\n\n" + fs.readFileSync("/usr/share/X11/locale/en_US.UTF-8/Compose", "utf-8");
 const unicodedata = fs.readFileSync(__dirname + "/deps/UnicodeData.txt", "utf-8");
 
 const codepoint_to_name = [];
@@ -29,6 +29,7 @@ const unkeys = {
 	space: " ",
 	exclam: "!",
 	plus: "+",
+	Multi_key: "⎄",
 };
 
 function unkey(v) {
@@ -46,15 +47,16 @@ for(const line of composefile.split("\n")) {
 		result.push(["#", line.substring(2).trim()]);
 		continue;
 	}
-	if(!line.startsWith("<Multi_key>")) continue;
+	if(!line.trim()) continue;
+	if(line.trim().startsWith("#")) continue;
+	if(!line.startsWith("<")) continue;
 	// also do headings in the future
-	const [lhs, ...rhsall] = line.split(" : ");
-	const rhs = rhsall.join(" : ").match(/^"(.*)".*#?.*$/)[1];
-	const keyentries = lhs.match(/<[A-Za-z0-9_]+>/g);
+	const [lhs, ...rhsall] = line.split(":");
+	const rhs = rhsall.join(" : ").trim().match(/^"(.*)".*$/)[1];
+	const keyentries = lhs.trim().match(/<[A-Za-z0-9_]+>/g);
 	const thisentry = [];
 	for(const item of keyentries) {
 		const v = item.substring(1, item.length - 1);
-		if(v === "Multi_key") continue;
 		thisentry.push(unkey(v));
 	}
 	const prevresult = result[result.length - 1];

@@ -1,10 +1,8 @@
-const keyspec = [["䷑", "H", "a", "A"]];
-
 const html = uhtml.html;
 
 function reducer(t, k) {
 	if(t[t.length - 1]) {
-		const lastchar = t[t.length - 1] + k;
+		const lastchar = (t[t.length - 1]).symbol + k;
 		if(lastchar.match(/^[A-Za-z0-9]+$/)) {
 			t[t.length - 1] = lastchar;
 			return t;
@@ -15,8 +13,8 @@ function reducer(t, k) {
 }
 
 function displaykey(key) {
-	if(key === " ") return html`<kbd class="light">⎵</kbd>`;
-	return html`<kbd>${key}</kbd>`;
+	if(key.symbol === " ") return html`<kbd title=${key.name} class="light">⎵</kbd>`;
+	return html`<kbd title=${key.name}>${key.symbol}</kbd>`;
 }
 
 function keycard({char, codepoint, name}, ...keysets) {const uchar = `${codepoint.toString(16).padStart(4, "0").toUpperCase()}`; return html`

@@ -29,20 +29,28 @@ const unkeys = {
 	space: " ",
 	exclam: "!",
 	plus: "+",
+	backslash: "\\",
+	comma: ",",
+	quotedbl: "\"",
+	apostrophe: "'",
 	Multi_key: "⎄",
 };
 
 function unkey(v) {
 	if(v.length == 1) return v;
+	if(v.startsWith("U")) {
+		const codepoint = parseInt(v.substring(1), 16);
+		if(!isNaN(codepoint)) return String.fromCodePoint(codepoint);
+	}
 	if(!unkeys[v]) {
-		console.log("Missing <"+v+">");
-		unkeys[v] = "#MISSING";
+		if(!v.startsWith("dead_")) console.log("Missing <"+v+">");
+		unkeys[v] = "#<"+v+">";
 	}
 	return unkeys[v];
 }
 
 const result = [];
-for(const line of composefile.split("\n")) {
+mflp: for(const line of composefile.split("\n")) {
 	if(line.startsWith("##")) {
 		result.push(["#", line.substring(2).trim()]);
 		continue;
@@ -57,7 +65,9 @@ for(const line of composefile.split("\n")) {
 	const thisentry = [];
 	for(const item of keyentries) {
 		const v = item.substring(1, item.length - 1);
-		thisentry.push(unkey(v));
+		thisentry.push({symbol: unkey(v), name: v});
+		// for now
+		if(unkey(v).startsWith("#<dead_")) continue mflp;
 	}
 	const prevresult = result[result.length - 1];
 	if(prevresult && prevresult[0] === "⎄" && prevresult[1].char === rhs) {

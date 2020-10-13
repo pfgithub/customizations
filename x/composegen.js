@@ -195,6 +195,52 @@ const unkeys = {
 	"hebrew_taw": "ת",
 	"Cyrillic_er": "р",
 	"Cyrillic_ER": "р",
+	Amacron: "Ā",
+	amacron: "ā",
+	nobreakspace: "\u00a0",
+	Sabovedot: "Ṡ",
+	sabovedot: "ṡ",
+	Aacute: "Á",
+	Agrave: "À",
+	Ahook: "Ả",
+	Atilde: "Ã",
+	aacute: "á",
+	agrave: "à",
+	ahook: "ả",
+	atilde: "ã",
+	Cacute: "Ć",
+	ColonSign: "₡",
+	cacute: "ć",
+	cent: "¢",
+	Eacute: "É",
+	Egrave: "È",
+	Ehook: "Ẻ",
+	Etilde: "Ẽ",
+	eacute: "é",
+	egrave: "è",
+	ehook: "ẻ",
+	etilde: "ẽ",
+	Oacute: "Ó",
+	Ograve: "Ò",
+	Ohook: "Ỏ",
+	oacute: "ó",
+	ograve: "ò",
+	ohook: "ỏ",
+	"THORN": "þ",
+	thorn: "þ",
+	Iacute: "Í",
+	iacute: "í",
+	Ugrave: "Ù",
+	uacute: "ú",
+	ugrave: "ù",
+	schwa: "ə",
+	Obelowdot: "Ọ",
+	obelowdot: "ọ",
+	Uhook: "Ủ",
+	ubelowdot: "ụ",
+	uhook: "ủ",
+	eng: "Ŋ",
+	"ENG": "ŋ",
 	Multi_key: "⎄",
 };
 
@@ -213,7 +259,7 @@ function unkey(v) {
 }
 
 const result = [];
-mflp: for(const line of composefile.split("\n")) {
+for(const line of composefile.split("\n")) {
 	if(line.startsWith("##")) {
 		result.push(["#", line.substring(2).trim()]);
 		continue;
@@ -236,8 +282,6 @@ mflp: for(const line of composefile.split("\n")) {
 	for(const item of keyentries) {
 		const v = item.substring(1, item.length - 1);
 		thisentry.push({symbol: unkey(v), name: v});
-		// for now
-		if(unkey(v).startsWith("#<dead_")) continue mflp;
 	}
 	const prevresult = result[result.length - 1];
 	if(prevresult && prevresult[0] === "⎄" && prevresult[1].char === rhs) {

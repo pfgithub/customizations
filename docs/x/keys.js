@@ -14,6 +14,7 @@ function reducer(t, k) {
 
 function displaykey(key) {
 	if(key.symbol === " ") return html`<kbd title=${key.name} class="light">⎵</kbd>`;
+	if(key.symbol === "\u00a0") return html`<kbd title=${key.name} class="light" style="position: relative"><span style="position: absolute">+</span>⎵</kbd>`;
 	return html`<kbd title=${key.name}>${key.symbol}</kbd>`;
 }
 

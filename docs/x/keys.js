@@ -19,9 +19,9 @@ function displaykey(key) {
 	return html`<kbd>${key}</kbd>`;
 }
 
-function keycard({char, codepoint, name}, ...keysets) {return html`
+function keycard({char, codepoint, name}, ...keysets) {const uchar = `${codepoint.toString(16).padStart(4, "0").toUpperCase()}`; return html`
 	<div class="previewbox">
-		<div class="info">U+${codepoint.toString(16).padStart(4, "0").toUpperCase()}</div>
+		<div class="info"><a title=${name} href=${"http://www.fileformat.info/info/unicode/char/"+uchar+"/index.htm"}>U+${uchar}</a></div>
 		<input type="text" title=${name} value=${char} class="largepreview" readonly />
 		${keysets.map(keys => html`<div class="sequence"><kbd>⎄</kbd>${keys.reduce(reducer, []).map(displaykey)}</div>`)}
 	</div>

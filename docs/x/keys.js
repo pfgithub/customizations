@@ -14,10 +14,16 @@ function reducer(t, k) {
 	return t;
 }
 
-function keycard(result, keys) {return html`
+function displaykey(key) {
+	if(key === " ") return html`<kbd class="light">⎵</kbd>`;
+	return html`<kbd>${key}</kbd>`;
+}
+
+function keycard({char, codepoint, name}, ...keysets) {return html`
 	<div class="previewbox">
-		<input type="text" value="${result}" class="largepreview" readonly />
-		<div class="sequence"><kbd>⎄</kbd>${keys.reduce(reducer, []).map(key => html`<kbd>${key}</kbd>`)}</div>
+		<div class="info">U+${codepoint.toString(16).padStart("0", 4).toUpperCase()}</div>
+		<input type="text" title=${name} value=${char} class="largepreview" readonly />
+		${keysets.map(keys => html`<div class="sequence"><kbd>⎄</kbd>${keys.reduce(reducer, []).map(displaykey)}</div>`)}
 	</div>
 `}
 

@@ -16,6 +16,7 @@ include "%L"
 <Multi_key> <exclam> <equal> : "≠" # I always try this before =/
 <Multi_key> <C> <D> : "ↀ"
 <Multi_key> <D> <D> : "ↁ"
+<Multi_key> <C> <O> <D> : "ↂ"
 <Multi_key> <C> <C> <D> <D> : "ↂ"
 <Multi_key> <b> <l> : "Ы"
 <Multi_key> <s> <i> <g> <m> <a> : "∑"

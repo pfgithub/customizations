@@ -26,7 +26,6 @@ function keycard({char, codepoint, name}, ...keysets) {const uchar = `${codepoin
 `}
 
 function keydata([kind, ...args], i) {
-	if(i > 1000) return html`a`;
 	if(kind === "⎄") {
 		return keycard(...args);
 	}else if(kind === "#") {

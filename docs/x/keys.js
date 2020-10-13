@@ -2,9 +2,10 @@ const html = uhtml.html;
 
 function reducer(t, k) {
 	if(t[t.length - 1]) {
-		const lastchar = (t[t.length - 1]).symbol + k;
+		const lastchar = (t[t.length - 1]).symbol + k.symbol;
 		if(lastchar.match(/^[A-Za-z0-9]+$/)) {
-			t[t.length - 1] = lastchar;
+			t[t.length - 1].symbol = lastchar;
+			t[t.length - 1].name = undefined;
 			return t;
 		}
 	}
@@ -13,16 +14,16 @@ function reducer(t, k) {
 }
 
 function displaykey(key) {
-	if(key.symbol === " ") return html`<kbd title=${key.name} class="light">⎵</kbd>`;
-	if(key.symbol === "\u00a0") return html`<kbd title=${key.name} class="light" style="position: relative"><span style="position: absolute">+</span>⎵</kbd>`;
-	return html`<kbd title=${key.name}>${key.symbol}</kbd>`;
+	if(key.symbol === " ") return html`<span class="light">⎵</span>`;
+	if(key.symbol === "\u00a0") return html`<span class="light" style="position: relative"><span style="position: absolute">+</span>⎵</span>`;
+	return html`<span>${key.symbol}</span>`;
 }
 
 function keycard({char, codepoint, name}, ...keysets) {const uchar = `${codepoint.toString(16).padStart(4, "0").toUpperCase()}`; return html`
 	<div class="previewbox">
 		<div class="info"><a title=${name} href=${"http://www.fileformat.info/info/unicode/char/"+uchar+"/index.htm"}>U+${uchar}</a></div>
 		<input type="text" title=${name} value=${char} class="largepreview" readonly />
-		${keysets.map(keys => html`<div class="sequence">${keys.reduce(reducer, []).map(displaykey)}</div>`)}
+		${keysets.map(keys => html`<div class="sequence">${keys.reduce(reducer, []).map(key => html`<kbd title=${key.name}>${displaykey(key)}</kbd>`)}</div>`)}
 	</div>
 `}
 

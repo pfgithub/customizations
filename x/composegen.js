@@ -230,7 +230,7 @@ mflp: for(const line of composefile.split("\n")) {
 	if(!line.startsWith("<")) continue;
 	// also do headings in the future
 	const [lhs, ...rhsall] = line.split(":");
-	const rhs = rhsall.join(" : ").trim().match(/^"(.*)".*$/)[1];
+	const rhs = JSON.parse(rhsall.join(" : ").trim().match(/^(".*").*$/)[1]);
 	const keyentries = lhs.trim().match(/<[A-Za-z0-9_]+>/g);
 	const thisentry = [];
 	for(const item of keyentries) {

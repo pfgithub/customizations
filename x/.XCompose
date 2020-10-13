@@ -46,7 +46,7 @@ include "%L"
 <Multi_key> <grave> <grave> : "´"
 <Multi_key> <asciitilde> <asciitilde> : "∽"
 
-# Keyboard
+## Keyboard
 <Multi_key> <c> <t> <r> <l> : "⌃"
 <Multi_key> <a> <l> <t> : "⎇"
 <Multi_key> <o> <p> <t> : "⌥"
@@ -61,8 +61,10 @@ include "%L"
 <Multi_key> <d> <e> <l> : "⌦"
 <Multi_key> <f> <w> <d> <e> <l> : "⌦"
 <Multi_key> <b> <k> <s> <p> : "⌫"
+<Multi_key> <c> <o> <m> <p> <o> <s> <e> : "⎄"
+<Multi_key> <c> <m> <p> <z> : "⎄"
 
-# Hexagrams
+## Hexagrams
 <Multi_key> <H> <h> <A> : "䷑"
 <Multi_key> <H> <h> <B> : "䷔"
 <Multi_key> <H> <h> <H> : "䷎"
@@ -73,7 +75,7 @@ include "%L"
 <Multi_key> <H> <h> <U> : "䷗"
 <Multi_key> <H> <h> <W> : "䷆"
 
-# Tetragrams
+## Tetragrams
 <Multi_key> <T> <t> <A> : "𝌐"
 <Multi_key> <T> <t> <M> : "𝌩"
 <Multi_key> <T> <t> <U> : "𝌭"
@@ -83,7 +85,7 @@ include "%L"
 <Multi_key> <T> <t> <n> : "𝌓"
 <Multi_key> <T> <t> <W> : "𝍏"
 
-# Units
+## Units
 <Multi_key> <n> <m> : "㎚"
 <Multi_key> <u> <m> : "㎛"
 <Multi_key> <m> <m> : "㎜"
@@ -192,7 +194,7 @@ include "%L"
 <Multi_key> <A> <slash> <m> : "㏟"
 <Multi_key> <g> <a> <l> : "㏿"
 
-# IPA
+## IPA
 <Multi_key> <3> <3> : "ʒ"
 <Multi_key> <E> <E> : "ɛ"
 <Multi_key> <I> <I> : "ɪ"
@@ -201,11 +203,11 @@ include "%L"
 <Multi_key> <colon> <colon> : "ː"
 
 # Compose sequences which outputs strings (as opposed to just boring characters) seem to work in some applications.
-<Multi_key> <g> <i> <f> : "gɪf"
-<Multi_key> <d> <3> <i> <f> : "dʒɪf"
-<Multi_key> <j> <i> <f> : "dʒɪf"
+#<Multi_key> <g> <i> <f> : "gɪf"
+#<Multi_key> <d> <3> <i> <f> : "dʒɪf"
+#<Multi_key> <j> <i> <f> : "dʒɪf"
 
-# Cards
+## Cards
 <Multi_key> <k> <A> <S> : "🂡"
 <Multi_key> <k> <2> <S> : "🂢"
 <Multi_key> <k> <3> <S> : "🂣"
@@ -277,7 +279,7 @@ include "%L"
 # copy(res.join("\n"))
 #                      }
 
-# Dominoes
+## Dominoes
 <Multi_key> <d> <0> <minus> <0> : "🁣"
 <Multi_key> <d> <0> <minus> <1> : "🁤"
 <Multi_key> <d> <0> <minus> <2> : "🁥"
@@ -411,7 +413,7 @@ include "%L"
 # copy(dhorizontal);
 # }
 
-# Fractions
+## Fractions
 <Multi_key> <slash> <slash> : "⁄" # ^4 // _3 = ⁴⁄₃
 <Multi_key> <1> <slash> <2> : "½"
 <Multi_key> <1> <slash> <3> : "⅓"
@@ -433,10 +435,10 @@ include "%L"
 <Multi_key> <1> <slash> <1> <0> : "⅒"
 <Multi_key> <1> <slash> <slash> : "⅟"
 
-# semicolon (for programming)
+## semicolon (for programming)
 <Multi_key> <g> <question> : ";"
 
-# GREEK CAPITAL LETTERS
+## GREEK CAPITAL LETTERS
 <Multi_key> <G> <A> : "Α"    U0391    # GREEK CAPITAL LETTER ALPHA
 #<Multi_key> <G> <B> : "Β"    U0392    # GREEK CAPITAL LETTER BETA
 <Multi_key> <G> <G> : "Γ"    U0393    # GREEK CAPITAL LETTER GAMMA
@@ -458,13 +460,13 @@ include "%L"
 <Multi_key> <G> <X> : "Χ"    U03A7    # GREEK CAPITAL LETTER CHI
 <Multi_key> <G> <O> : "Ω"    U03A9    # GREEK CAPITAL LETTER OMEGA
 
-# DOUBLES (additional stroke <Q>)
+## DOUBLES (additional stroke <Q>)
 <Multi_key> <G> <Q> <T> : "Θ"    U0398    # GREEK CAPITAL LETTER THETA
 <Multi_key> <G> <Q> <O> : "Ο"    U039F    # GREEK CAPITAL LETTER OMICRON
 <Multi_key> <G> <Q> <X> : "Ξ"    U039E    # GREEK CAPITAL LETTER XI
 <Multi_key> <G> <Q> <P> : "Ψ"    U03A8    # GREEK CAPITAL LETTER PSI
 
-# greek small letters
+## greek small letters
 <Multi_key> <g> <a> : "α"    U03B1    # GREEK SMALL LETTER ALPHA
 <Multi_key> <g> <b> : "β"    U03B2    # GREEK SMALL LETTER BETA
 <Multi_key> <g> <g> : "γ"    U03B3    # GREEK SMALL LETTER GAMMA
@@ -486,7 +488,7 @@ include "%L"
 <Multi_key> <g> <x> : "χ"    U03C7    # GREEK SMALL LETTER CHI
 <Multi_key> <g> <o> : "ω"    U03C9    # GREEK SMALL LETTER OMEGA
 
-# doubles (additional stroke <q>)
+## doubles (additional stroke <q>)
 <Multi_key> <g> <q> <t> : "θ"    U03B8    # GREEK SMALL LETTER THETA
 <Multi_key> <g> <q> <o> : "ο"    U03BF    # GREEK SMALL LETTER OMICRON
 <Multi_key> <g> <q> <p> : "ψ"    U03C8    # GREEK SMALL LETTER PSI

@@ -1,0 +1,542 @@
+@import "syntax-variables";
+
+intention-inline{display: none;}
+
+// Requires `language-markdown`. The default markdown parser will not work.
+
+// -------------
+// Configuration
+// -------------
+
+// Settings for the custom indent guide.
+@indent-guide: true; // Enable the custom indent guide, like the one shown in the demo screenshot.
+	@indent-guide-color-hard-tab: rgba(255,255,255,0.2);
+	@indent-guide-color-soft-tab: rgba(255,255,255,0.1);
+	@indent-guide-hard-tab-only: false; // Only enable the indent guide for hard tabs.
+	@indent-guide-soft-tab-position: 50%; // The character the indent guide is shown at on soft tabs. Find a value that works.
+	@indent-guide-hard-tab-position: 250%; // The character the indent guide is shown at on hard tabs. Find a value that works.
+
+// Settings for when invisible characters should be shown.
+@invisible-characters: false; // When disabled, only shows important visible characters such as spaces after markdown lines. When enabled, all invisible characters are shown.  Set to false if you usually hide invisible characters in settings, true if you usually show them. Both options require invisible characters enabled in settings.
+
+// Settings for editing markdown files
+@markdown: true; // Enable markdown editor additions.
+	@markdown-color: true; // Default colors are for the City Lights syntax theme. Disabling this does nothing.
+		@markdown-color-text: @syntax-text-color;
+		@markdown-color-links: #68A1F0;
+		@markdown-color-line: rgba(0,0,0,0.6);
+		@markdown-color-solid-line: #111; // The left line on a quote is a "solid" line
+		@markdown-color-block-background: rgba(0,0,0,0.2162162162162162);
+	@markdown-font-always-monospace: false; // Use a monospace font for all text. When off, monospace fonts are used when it improves readability, such as in code blocks.
+	@markdown-list: true; // Enable custom list positioning
+		@markdown-list-bullet: true; // Enable replacing list bullet character like `-` or `*` with preview bullet character.
+			@markdown-list-bullets: "•", "◦", "▪", "‣"; // List bullet points. As many/few as wanted. Each point is for a different level. Bullet point levels work best with hard tabs and no space before the bullet point.
+	@markdown-headings: true; // Enable custom styles for markdown headings. font-size-scale(n%) = font-size: n% of default
+		.markdown-heading-1 {.bold; .font-size-scale(140%);}
+		.markdown-heading-2 {.bold; .font-size-scale(130%);}
+		.markdown-heading-3 {.bold; .italic; .font-size-scale(110%);}
+		.markdown-heading-4 {.italic; opacity: 0.8;}
+		.markdown-heading-5 {.italic; opacity: 0.6;}
+		.markdown-heading-6 {.italic; opacity: 0.4;}
+	@markdown-links: true; // Enables custom styling for markdown links.
+		.markdown-link-text {.underline;}
+		.markdown-link-url {.monospace;}
+		.markdown-link-title {.inline-block;}
+	@markdown-lines: true; // Enables lines, like those in tables and quotes and horizontal lines.
+		@markdown-line-width: 3px; // The width for lines
+	@markdown-horizontal-lines: true; // Enables showing horizontal lines as a horizontal line
+		@markdown-horizontal-line-style: solid; // CSS Border Style for horizontal lines (`---`)
+	@markdown-quote: true; // Enables block styling for quotes.
+		@markdown-quote-lines: true; // Enables lines on quote styling. Adjust width with @markdown-line-width above.
+		@markdown-quote-background: true; // Enables the background for quotes.
+	@markdown-block-code: true; // Enables block styling for code blocks. Syntax highlighting and font is determined by the chosen language, disabling this will keep that styling like monospace font and syntax highlighting.
+		@markdown-block-code-background: true; // Enables the background for quotes.
+		.markdown-block-code-language-name {.monospace; .inline-block;} // Custom styling for the language name in a code block (```languagename)
+	@markdown-tables: true; // Enables styling for markdown tables. Tables are always monospace, even with this off.
+		@markdown-table-background: true; // Table backgrounds go past the end of the table.
+		@markdown-table-lines: true; // Enables lines rendering in place of characters like | and -
+			@markdown-table-lines-vertical: true; // Enables lines rendering in place of |
+			@markdown-table-lines-horizontal: true; // Enables lines rendering in place of -. Table lines go past the end of the table.
+	@markdown-inline-code: true; // Enables styling for `inline code`.
+		.markdown-inline-code-style {.monospace; .inline-block;}
+	@markdown-text-styles: true; // Enables custom styling for text things like **bold**. Some styles may still show when this is disabled, the markdown plugin automatically applies these.
+		.markdown-text-style-bold {.bold;}
+		.markdown-text-style-italic {.italic; opacity: 0.8;}
+		.markdown-text-style-strikethrough {.strikethrough;}
+	@markdown-indent-guide: true; // Enables the indent guide on markdown. When disabled, invisible characters are shown instead (if enabled in settings).
+
+// @font-code: Consolas, Monospace;
+// @font-code-ligatures: 'DejaVu Sans Code', 'Fira Code Retina', @font-code;
+
+// some fonts: 'Hasklig' (too wide), 'Fira Code Retina' (weird but the * is nice), 'DejaVu Sans Code' (too tall and wide),
+// 'Consolas' (best but no ligatures), 'Consolig' (ligatures aren't hinted correctly or something),
+// 'JetBrains Mono Semi Light' (too wide and too tall and too boxy), 'Iosveka Regular' (too thin, != looks bad),
+// 'Iosevka Custom' idk similar issue to jetbrains but better
+
+//   Consolas, for example, has slightly wider letters.
+// what? no it has thinner letters
+//   However, they are still rather small, which forces you to increase the size by one point to make the font more readable.
+//   As a result, lines of code tend to run longer than expected.
+// how would increasing your font size cause lines to run longer?
+
+// also atom doesn't seem to support ligatures on => for some reason jk what??
+
+// Settings for replacing the default fonts
+@fonts: true; // Overrides default fonts
+	@font-code: 'Consolas', Monospace;
+		@font-code-ligatures: @font-code; // Font for operators. Use if you want ligatures on operators but don't like the font. Otherwise, can be set to just @font-code
+	@font-text: sans-serif; // Font for markdown.
+
+// Settings for animating the cursor
+@animate-cursor: false; // Animate the cursor moving, like MS Word.
+
+// Settings for punctuation
+@punctuation-style: true; // Custom styling for punctuation and brackets.
+	.brackets{opacity: 0.3;}
+	.punctuation{opacity: 0.5;}
+	@punctuation-style-replace-semi-with-interpunct: true; // Replace `;` with `·`
+
+// Settings for comments
+@comment-style: true; // Custom styling for comments
+	.comment-style-inline-comment{.monospace; font-style: normal; .inline-block; color:#fff;}
+	.comment-style-multiline-comment{.monospace; font-style: normal; .inline-block; color: #fff;}
+
+// Settings for escapes in strings
+@string-style: true;
+	@string-escape-style: true;
+		@string-escape-backslash-color: rgba(255,255,255,0.2);
+		@string-escape-character-color: #33CED8;
+		@string-escape-character-color-soft: #a4d8d1;
+		@string-escape-default-color: #9ed1a0;
+	@string-style-custom: false;
+		.string-style{.text-font;}
+
+// -------------------
+// Mixin Documentation
+// -------------------
+
+.docs{
+	// Text Styles
+	.bold; // Sets font-weight to bold
+	.italic; // Sets font-style to italic
+	.underline; // Sets text-decoration to underline
+	.strikethrough; // Does a gigantic mess making pseudoelements sized to strikethrough some text
+
+	.monospace; // Sets the font to the chosen code font or the default monospace
+	.text-font; // Sets the font to the chosen text font
+
+	.font-size-scale(100%); // Sets the font size to n% of the default font size
+
+	.inline-block; // Puts a box arond the text, like inline code blocks
+	.block // Sets the line background to the chosen background color, like normal code blocks
+
+}
+
+
+// ------------------------
+// Configuration ends here.
+// ------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// -----------------
+// Code starts here.
+// -----------------
+
+
+@line-height-px: ~"calc(var(--editor-font-size) * var(--editor-line-height))";
+
+.inline-block(){
+	background-color: @markdown-color-block-background;
+	padding: 4px;
+	border-radius: 4px;
+}
+.monospace(){
+	font-family: var(--editor-font-family);
+}
+.text-font(){
+	font-family: @font-text;
+}
+.font-size-scale(@percentage) {
+	@number-percentage: (unit(@percentage) / 100);
+	font-size:~"calc(var(--editor-font-size) * @{number-percentage})"
+}
+.bold{
+	font-weight: bold;
+}
+.italic{
+	font-style: italic;
+}
+.underline{
+	text-decoration: underline;
+}
+.strikethrough{
+	& > .syntax--punctuation{
+		&:first-child, &:last-child{
+			visibility:hidden;
+		}
+	}
+	position:relative;
+
+	&::before{
+		content: "";
+		width: 100%;
+		height: 1px;
+		background: @markdown-color-text;
+		position: absolute;
+		top: 50%;
+		//transform:translate(0,-50%);
+		left: 0;
+	}
+}
+
+.block{
+	&::after{
+		content:"";
+		position:absolute;
+		left:0;
+		width:100%;
+		height:@line-height-px;
+		background-color:@markdown-color-block-background;
+	}
+}
+
+.for (@list, @code) {
+	& {
+		.loop(@i:1) when (@i =< length(@list)) {
+			@value: extract(@list, @i);
+			@code();
+			.loop(@i + 1);
+		}
+		.loop();
+	}
+}
+
+:root{
+}
+
+@markdown-heading-numbers: 1 2 3 4 5 6;
+
+// Markdown
+span when(@markdown){
+	.syntax--markup, .syntax--md{
+		& when(@markdown-font-always-monospace = false){
+			.text-font
+		}
+		color: @markdown-color-text;
+		&.syntax--raw when(@markdown-inline-code){
+			.markdown-inline-code-style;
+		}
+		&.syntax--link when(@markdown-links){
+			&.syntax--text{
+				color: @markdown-color-links;
+				.markdown-link-text;
+			}
+			&.syntax--underline{
+				color: @markdown-color-links;
+				.markdown-link-url;
+			}
+			&.syntax--title{
+				color: @markdown-color-text;
+				.markdown-link-title;
+			}
+		}
+		&.syntax--punctuation{
+			.monospace;
+		}
+		& when(@markdown-headings){
+			&.syntax--heading-1{
+				color: @markdown-color-text !important;
+				.markdown-heading-1
+			}
+			&.syntax--heading-2{
+				color: @markdown-color-text !important;
+				.markdown-heading-2
+			}
+			&.syntax--heading-3{
+				color: @markdown-color-text !important;
+				.markdown-heading-3
+			}
+			&.syntax--heading-4{
+				color: @markdown-color-text !important;
+				.markdown-heading-4
+			}
+			&.syntax--heading-5{
+				color: @markdown-color-text !important;
+				.markdown-heading-5
+			}
+			&.syntax--heading-6{
+				color: @markdown-color-text !important;
+				.markdown-heading-6
+			}
+		}
+		& > .trailing-whitespace{
+			visibility:visible;
+			.monospace;
+		}
+		&.syntax--quote, &.syntax--bold, &.syntax--italic, &.syntax--list{
+			color: @markdown-color-text;
+		}
+		& when(@markdown-text-styles){
+			&.syntax--bold{
+				.markdown-text-style-bold;
+			}
+			&.syntax--italic{
+				.markdown-text-style-italic;
+			}
+			&.syntax--strike{
+				.markdown-text-style-strikethrough;
+			}
+		}
+		& when(@markdown-list){
+			&.syntax--list > .syntax--punctuation{
+				&::before{
+					visibility: visible;
+					.monospace;
+					content: "  ";
+				}
+			}
+			&.syntax--list.syntax--unordered > .syntax--punctuation when(@markdown-list-bullet){
+				visibility:hidden;
+				@bullets: length(@markdown-list-bullets);
+				.for(@markdown-list-bullets, {
+					&:nth-child(@{bullets}n+@{i})::before{
+						content: "  @{value}";
+					}
+				});
+			}
+		}
+		&.syntax--fenced, &.syntax--table{
+			.monospace;
+		}
+		&.syntax--table when(@markdown-tables){
+			&.syntax--table when(@markdown-table-background){
+				.block
+			}
+			& when(@markdown-lines) and(@markdown-table-lines){
+				& > .syntax--horizontal when(@markdown-table-lines-horizontal){
+					visibility:hidden;
+					&::after{
+							visibility:visible;
+							content:"";
+							border-bottom: 3px solid @markdown-color-block-background;
+							box-sizing:content-box;
+							position:absolute;
+							left:0;
+							width:100%;
+							height:@line-height-px;
+							transform:translate(0,-50%);
+					}
+				}
+				& > .syntax--vertical when(@markdown-table-lines-vertical){
+					visibility:hidden;
+					&:before{
+						visibility:visible;
+						content:"";
+						position:absolute;
+						width:3px;
+						height:@line-height-px;
+						background-color:@markdown-color-line;
+					}
+				}
+			}
+		}
+		& when(@markdown-block-code){
+			&.syntax--fenced > .syntax--language{
+				.markdown-block-code-language-name;
+			}
+			&.syntax--fenced when(@markdown-block-code-background){
+				.block
+			}
+		}
+		& when(@markdown-quote){
+			&.syntax--quote when(@markdown-quote-background){
+				.block
+			}
+			&.syntax--quote when(@markdown-lines) and(@markdown-quote-lines){
+				&::after{
+					border-left: @markdown-line-width solid @markdown-color-solid-line;
+				}
+				& > .syntax--punctuation:first-child{
+					visibility:hidden;
+					&:before{
+						visibility:visible;
+						content:"";
+						position:absolute;
+						width:@markdown-line-width;
+						height:@line-height-px;
+						background-color:@markdown-color-line;
+					}
+				}
+			}
+		}
+		&.syntax--hr when(@markdown-lines) and(@markdown-horizontal-lines){
+			visibility:hidden;
+			&::after{
+				visibility:visible;
+				content:"";
+				border-bottom: @markdown-line-width @markdown-horizontal-line-style @markdown-color-block-background;
+				box-sizing:content-box;
+				position:absolute;
+				left:0;
+				width:100%;
+				height:@line-height-px;
+				transform:translate(0,-50%);
+			}
+		}
+		& > .indent-guide:before when(@markdown-indent-guide = false){
+			display:none;
+		}
+		&:not(.syntax--list) > .indent-guide when(@markdown-indent-guide = false){
+			visibility:visible !important;
+			.monospace;
+		}
+		& > .trailing-whitespace{
+			visibility: visible !important;
+			.monospace;
+		}
+		& > .syntax--html {
+			.monospace;
+		}
+	}
+
+}
+span when(@invisible-characters = false){
+	.invisible-character{
+		visibility:hidden
+	}
+	.invisible-character.indent-guide{
+		visibility:visible;
+	}
+	.invisible-character.trailing-whitespace{
+		visibility:hidden;
+	}
+}
+span when (@indent-guide) {
+	.invisible-character.indent-guide{
+		visibility:hidden;
+	}
+	.indent-guide{
+		box-shadow:none !important;
+		visibility:hidden;
+	}
+	.indent-guide:not(.eol):not(.trailing-whitespace) {
+		&::before{
+			content:" ";
+			position:absolute;
+			border-left: 1px solid @indent-guide-color-soft-tab;
+			visibility:visible;
+			transform: translate(50%);
+		}
+		&.hard-tab::before{
+			transform: translate( @indent-guide-hard-tab-position );
+			border-left: 1px solid @indent-guide-color-hard-tab;
+		}
+		&:not(.hard-tab)::before when (@indent-guide-hard-tab-only){
+			visibility:hidden !important;
+		}
+	}
+}
+/**/
+
+// Fonts
+atom-text-editor when(@fonts){
+	--editor-font-family: @font-code;
+}
+span when(@fonts){
+	.syntax--operator, .syntax--punctuation{
+		font-family: @font-code-ligatures;
+		font-size: ~"calc(var(--editor-font-size) * 50%)";
+	}
+}
+.line > span::after{
+	content:"|";
+	font-family: @font-code-ligatures;
+	visibility:hidden;
+}
+
+.line{
+	max-height: @line-height-px;
+}
+// Punctuation Style
+.syntax--punctuation.syntax--bracket when(@punctuation-style){
+	.brackets;
+}
+.syntax--punctuation when(@punctuation-style){
+	.punctuation;
+}
+
+// Character Replacements
+.syntax--punctuation.syntax--terminator when(@punctuation-style)  and(@punctuation-style-replace-semi-with-interpunct){
+	visibility: hidden;
+	// font-size:0;
+}
+.syntax--punctuation.syntax--terminator:after when(@punctuation-style) and(@punctuation-style-replace-semi-with-interpunct){
+	content:"·";
+	visibility: visible;
+	position:absolute;
+	transform:translate(-100%, 0);
+	font-size:var(--editor-font-size);
+}
+
+// Cursor
+.cursor when(@animate-cursor) {
+	transition: 0.1s transform, 0.1s width, 0.1s height;
+}
+
+// Comment
+/*Multiline
+Comment*/
+span when(@comment-style){
+	.syntax--comment.syntax--line{
+		.comment-style-inline-comment;
+	}
+	.syntax--comment.syntax--block{
+		.comment-style-multiline-comment;
+	}
+	.syntax--comment.syntax--punctuation{
+		.monospace;
+	}
+}
+
+.syntax--string when(@string-style){
+	& > .syntax--escape when(@string-escape-style){
+		--one-character-width: ~"calc(var(--editor-font-size) / 2)";
+		--two-character-width: var(--editor-font-size);
+		--string-escape-character-color: @string-escape-character-color;
+		background: -webkit-linear-gradient(left, @string-escape-backslash-color var(--one-character-width), var(--string-escape-character-color) var(--one-character-width));
+		&.syntax--double-quote, &.syntax--single-quote, &.syntax--backslash {
+			--string-escape-character-color: @string-escape-default-color;
+		}
+		&.syntax--hexidecimal {
+			background: -webkit-linear-gradient(left, @string-escape-backslash-color var(--one-character-width),  @string-escape-character-color-soft var(--one-character-width), @string-escape-character-color-soft var(--two-character-width), @string-escape-character-color var(--two-character-width));
+			-webkit-background-clip: text;
+			-webkit-text-fill-color: transparent;
+		}
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		content: "test\'test";
+	}
+	&:not(.syntax--punctuation) when(@string-style-custom){
+		.string-style;
+	}
+	& > span when(@string-style-custom){
+		.monospace;
+	}
+}

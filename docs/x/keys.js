@@ -21,7 +21,7 @@ function displaykey(key) {
 
 function keycard({char, codepoint, name}, ...keysets) {return html`
 	<div class="previewbox">
-		<div class="info">U+${codepoint.toString(16).padStart("0", 4).toUpperCase()}</div>
+		<div class="info">U+${codepoint.toString(16).padStart(4, "0").toUpperCase()}</div>
 		<input type="text" title=${name} value=${char} class="largepreview" readonly />
 		${keysets.map(keys => html`<div class="sequence"><kbd>⎄</kbd>${keys.reduce(reducer, []).map(displaykey)}</div>`)}
 	</div>

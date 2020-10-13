@@ -218,6 +218,13 @@ mflp: for(const line of composefile.split("\n")) {
 		result.push(["#", line.substring(2).trim()]);
 		continue;
 	}
+	if(line.trim().startsWith("#")) {
+		const commenttext = line.substring(1);
+		const prevresult = result[result.length - 1];
+		if(prevresult[0] === "//") prevresult.push(commenttext);
+		else result.push(["//", commenttext]);
+		continue;
+	}
 	if(!line.trim()) continue;
 	if(line.trim().startsWith("#")) continue;
 	if(!line.startsWith("<")) continue;

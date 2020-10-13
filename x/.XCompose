@@ -1,13 +1,22 @@
 include "%L"
 
-<Multi_key> <semicolon> <semicolon> : "·" # Unnecessary, ralt.- is good enough.
-<Multi_key> <O> <period> : "Ꙩ"
-<Multi_key> <o> <period> : "ꙩ"
-<Multi_key> <asciitilde> <equal> : "≈"
+## Arrows
 <Multi_key> <asciicircum> <bar> : "↑"
 <Multi_key> <bar> <asciicircum> : "↑"
 <Multi_key> <v> <bar> : "↓"
 <Multi_key> <bar> <v> : "↓"
+<Multi_key> <bar> <greater> : "▸"
+<Multi_key> <less> <bar> : "◂"
+<Multi_key> <underscore> <asciicircum> : "▴"
+<Multi_key> <asciicircum> <underscore> : "▴"
+<Multi_key> <minus> <v> : "▾"
+<Multi_key> <v> <minus> : "▾"
+
+## Random Symbols
+<Multi_key> <semicolon> <semicolon> : "·" # Unnecessary, ralt.- is good enough.
+<Multi_key> <O> <period> : "Ꙩ"
+<Multi_key> <o> <period> : "ꙩ"
+<Multi_key> <asciitilde> <equal> : "≈"
 <Multi_key> <bar> <u> : "μ"
 <Multi_key> <p> <i> : "π"
 <Multi_key> <P> <I> : "Π"
@@ -33,13 +42,6 @@ include "%L"
 <Multi_key> <E> <t> : "🙲"
 <Multi_key> <e> <t> : "🙰"
 <Multi_key> <a> <period> <period> <period> : "⎁"
-
-<Multi_key> <bar> <greater> : "▸"
-<Multi_key> <less> <bar> : "◂"
-<Multi_key> <underscore> <asciicircum> : "▴"
-<Multi_key> <asciicircum> <underscore> : "▴"
-<Multi_key> <minus> <v> : "▾"
-<Multi_key> <v> <minus> : "▾"
 
 <Multi_key> <minus> <equal> : "≡"
 <Multi_key> <equal> <minus> : "≡"

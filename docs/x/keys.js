@@ -25,17 +25,22 @@ function keycard({char, codepoint, name}, ...keysets) {const uchar = `${codepoin
 	</div>
 `}
 
-function keydata([kind, ...args]) {
+function keydata([kind, ...args], i) {
+	if(i > 1000) return html`a`;
 	if(kind === "⎄") {
 		return keycard(...args);
 	}else if(kind === "#") {
 		return html`<h1>${args[0]}</h1>`;
+	}else if(kind === "//") {
+		return html`<pre class="commentblock">${args.join("\n")}</pre>`;
 	}else {
 		console.log("Unexpected `"+kind+"`");
 		return html`a`;
 	}
 }
 
-uhtml.render(document.body, html`
-	${data.map(keydata)}
-`);
+for(const keyinfo of data) {
+	const fragment = document.createDocumentFragment();
+	uhtml.render(fragment, keydata(keyinfo));
+	document.body.appendChild(fragment);
+}

@@ -241,6 +241,51 @@ const unkeys = {
 	uhook: "ủ",
 	eng: "Ŋ",
 	"ENG": "ŋ",
+	kana_KA: "カ",
+	kana_KI: "キ",
+	kana_KU: "ク",
+	kana_KE: "ケ",
+	kana_KO: "コ",
+	kana_SA: "サ",
+	kana_SHI: "シ",
+	kana_SU: "ス",
+	kana_SE: "セ",
+	kana_SO: "ソ",
+	kana_TA: "タ",
+	kana_CHI: "チ",
+	kana_TSU: "ツ",
+	kana_TE: "テ",
+	kana_TO: "ト",
+	kana_HA: "ハ",
+	kana_HI: "ヒ",
+	kana_FU: "フ",
+	kana_HE: "ヘ",
+	kana_HO: "ホ",
+	kana_U: "ウ",
+	kana_WA: "ワ",
+	kana_WO: "ヲ",
+	kana_A: "ア",
+	kana_I: "イ",
+	kana_E: "エ",
+	kana_O: "オ",
+	kana_NA: "ナ",
+	kana_NI: "ニ",
+	kana_NU: "ヌ",
+	kana_NE: "ネ",
+	kana_NO: "ノ",
+	kana_MA: "マ",
+	kana_MI: "ミ",
+	kana_MU: "ム",
+	kana_ME: "メ",
+	kana_MO: "モ",
+	kana_YA: "ヤ",
+	kana_YU: "ユ",
+	kana_YO: "ヨ",
+	kana_RA: "ラ",
+	kana_RI: "リ",
+	kana_RU: "ル",
+	kana_RE: "レ",
+	kana_RO: "ロ",
 	Multi_key: "⎄",
 };
 
@@ -252,7 +297,7 @@ function unkey(v) {
 	}
 	if(v.startsWith("KP_")) return "<Keypad "+v.substring(3)+">";
 	if(!unkeys[v]) {
-		if(!v.startsWith("dead_") && !v.startsWith("kana_")) console.log(""+v+"");
+		if(!v.startsWith("dead_")) console.log(""+v+"");
 		unkeys[v] = "#<"+v+">";
 	}
 	return unkeys[v];

@@ -27,21 +27,37 @@ function keycard({char, codepoint, name}, ...keysets) {const uchar = `${codepoin
 	</div>
 `}
 
+let current_heading = undefined;
+
 function keydata([kind, ...args], i) {
+	const fragment = document.createDocumentFragment();
 	if(kind === "⎄") {
-		return keycard(...args);
+		uhtml.render(fragment, keycard(...args));
 	}else if(kind === "#") {
-		return html`<h1>${args[0]}</h1>`;
+		const details = {};
+		uhtml.render(fragment, html`<details ref=${details}><summary>${args[0]}</summary></details>`);
+		current_heading = details.current;
 	}else if(kind === "//") {
-		return html`<pre class="commentblock">${args.join("\n")}</pre>`;
+		uhtml.render(fragment, html`<pre class="commentblock">${args.join("\n")}</pre>`);
 	}else {
 		console.log("Unexpected `"+kind+"`");
-		return html`a`;
+		uhtml.render(fragment, html`error unexpected ${kind}`);
+	}
+	if(kind === "#" || !current_heading) {
+		document.body.appendChild(fragment);
+	}else{
+		current_heading.appendChild(fragment);
 	}
 }
 
-for(const keyinfo of data) {
-	const fragment = document.createDocumentFragment();
-	uhtml.render(fragment, keydata(keyinfo));
-	document.body.appendChild(fragment);
-}
+
+const fragment = document.createDocumentFragment();
+uhtml.render(fragment, html`<p>Generated from <a href="https://github.com/pfgithub/customizations/blob/master/x/.XCompose">my .XCompose file</a>.</p>`);
+document.body.appendChild(fragment);
+(async () => {
+	for(const keyinfo of data) {
+		keydata(keyinfo);
+		if(keyinfo[0] === "#") await new Promise(r => setTimeout(r, 0));
+	}
+	document.getElementById("loadingdeleteme").remove();
+})()

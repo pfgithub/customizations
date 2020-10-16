@@ -1,0 +1,4 @@
+#
+i3-msg layout tabbed
+i3-msg layout stacking
+i3-msg focus mode_toggle

@@ -11,6 +11,7 @@ include "%L"
 <Multi_key> <asciicircum> <underscore> : "▴"
 <Multi_key> <minus> <v> : "▾"
 <Multi_key> <v> <minus> : "▾"
+<Multi_key> <minus> <minus> <v> : "⬎"
 
 ## Random Symbols
 <Multi_key> <semicolon> <semicolon> : "·" # Unnecessary, ralt.- is good enough.
@@ -64,8 +65,9 @@ include "%L"
 <Multi_key> <d> <e> <l> : "⌦"
 <Multi_key> <f> <w> <d> <e> <l> : "⌦"
 <Multi_key> <b> <k> <s> <p> : "⌫"
-<Multi_key> <c> <o> <m> <p> <o> <s> <e> : "⎄"
+# <Multi_key> <c> <o> <m> <p> <o> <s> <e> : "⎄" (max: 7 <…>)
 <Multi_key> <c> <m> <p> <z> : "⎄"
+<Multi_key> <s> <p> <a> <c> : "⎵"
 
 ## Hexagrams
 <Multi_key> <H> <h> <A> : "䷑"

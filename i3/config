@@ -2,9 +2,9 @@
 # Config
 # ==============
 
-# mod — Win
+# mod — ⌘  Win
 set $mod Mod4
-# mod — Alt
+# alt — ⎇  Alt
 set $alt Mod1
 
 # mod+mouse — move/resize windows
@@ -12,6 +12,9 @@ floating_modifier $mod
 
 # 1px window border. recommended to mod+Shift+b whenever possible, borders look bad
 for_window [class="^.*"] border pixel 1
+
+# Default all opened windows to floating
+for_window [class="^.*"] floating enable
 
 # gaps, keep in order apparently
 gaps inner 15
@@ -21,7 +24,7 @@ gaps outer 25
 # Startup Programs
 # ==============
 
-# middle mouse scrolling. be careful to always see at least one scroll tick before releasing middle mouse, otherwise many programs will "helpfully" paste your clipboard because that is clearly what the middle mouse button is for. Note that some programs will scroll smoothly and others will scroll in chunks, even if these programs support smooth scrolling.
+# middle mouse scrolling. be careful to always see at least one scroll tick before releasing middle mouse, otherwise many programs will "helpfully" paste your selection clipboard because that is clearly what the middle mouse button is for. Note that some programs will scroll smoothly and others will scroll in chunks, even if these programs support smooth scrolling.
 exec --no-startup-id xinput --set-prop "USB Optical Mouse" 'libinput Scroll Method Enabled' 0, 0, 1
 exec --no-startup-id xinput --set-prop "USB Optical Mouse" 'libinput Button Scrolling Button' 2
 
@@ -72,6 +75,9 @@ bindsym $mod+space exec --no-startup-id xfce4-popup-whiskermenu
 # alt+tab — remind you to not press alt+tab by showing a useless and painful alt+tab menu
 bindsym $alt+Tab exec --no-startup-id rofi -show window
 
+# mod+Shift+p - show a menu of less commonly used actions
+bindsym $mod+Shift+p exec --no-startup-id fish -c 'fish -c (cat ~/.config/i3/actionslist | rofi -dmenu)'
+
 # mod+l, mod+shift+l — unicode character entry (shift to copy character, noshift to type character)
 bindsym $mod+l exec --no-startup-id fish -c 'xdotool type (unipicker --command "rofi -dmenu")'
 bindsym $mod+Shift+l exec --no-startup-id fish -c 'set text (unipicker --command "rofi -dmenu") && [ $text != "" ] && copytxt $text'
@@ -102,31 +108,18 @@ bindsym $mod+v split v
 # mod+f — toggle fullscreen
 bindsym $mod+f fullscreen toggle
 
-# mod+u, mod+t — add vertic[u]l/horizon[t]al tabs to the container above the focused window
-bindsym $mod+u layout stacking
-bindsym $mod+t layout tabbed
-
-# mod+y — rotate the container above the focused window
-bindsym $mod+y layout toggle split
-
-# mod+Shift+u — toggle floating on the active window or container
-bindsym $mod+Shift+u floating toggle
+# mod+t — [t]oggle floating on the active window or container
+bindsym $mod+t floating toggle
+bindsym $mod+Shift+u exec --no-startup-id notify-send "mod+t to toggle" -i notifications -t 500
 
 # mod+Shift+escape - open xfce4-taskmanager
 bindsym $mod+Shift+Escape exec --no-startup-id xfce4-taskmanager
 
-# change focus between tiling / floating windows
-#bindsym $mod+t focus mode_toggle
-
-# focus the parent container
-#bindsym $mod+a focus parent
+# mod+Backslash - change focus between tiling [\] floating windows
+bindsym $mod+Backslash focus mode_toggle
 
 # take a screenshot
-# bindsym $mod+Print exec sharenix-section -n
 bindsym $mod+Print exec flameshot gui
-
-# focus the child container
-#bindsym $mod+d focus child
 
 # way too much config file to set 12 workspace names. a for loop would be nice here
 set $ws1 "1"

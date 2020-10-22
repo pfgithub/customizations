@@ -2,4 +2,5 @@
 
 click and drag a link to the bookmarks bar
 
-<a href="javascript:(function()%7B(speed%3D%2Bprompt(%22speed%22%2C%20%222.0%22)%2CArray.from(document.querySelectorAll(%22video%2C%20audio%2C%20media%22)).forEach(elem%20%3D%3E%20elem.playbackRate%20%3D%20speed))%7D)())">2x</a> - set speed of videos on the page
+- <a href="javascript:(function()%7B(speed%3D%2Bprompt(%22speed%22%2C%20%222.0%22)%2CArray.from(document.querySelectorAll(%22video%2C%20audio%2C%20media%22)).forEach(elem%20%3D%3E%20elem.playbackRate%20%3D%20speed))%7D)())">2x</a> - set speed of videos on the page
+- <a href="javascript:(function()%7Bif(window.__invert_colors)%20%7B%0A%20%20%20%20window.__invert_colors.remove()%3B%0A%20%20%20%20window.__invert_colors%20%3D%20null%3B%0A%7Delse%7B%0A%20%20%09window.__invert_colors%20%3D%20document.createElement(%22style%22)%3B%0A%20%20%09window.__invert_colors.appendChild(document.createTextNode(%60html%7Bfilter%3A%20invert(100%25)%3B%0A%20%20background%3A%20black%3B%7D%60))%3B%0A%20%20%09document.head.appendChild(window.__invert_colors)%3B%0A%7D%7D)()%3B">Invert Colors</a> - toggle invert page colors

@@ -1,5 +1,5 @@
 const fs = require("fs");
-const composefile = "\n\n## Builtin\n\n" + fs.readFileSync("/usr/share/X11/locale/en_US.UTF-8/Compose", "utf-8") + "\n\n" + fs.readFileSync(__dirname + "/.XCompose", "utf-8");
+const composefile = "\n\n## Builtin\n\n" + fs.readFileSync("/usr/share/X11/locale/en_US.UTF-8/Compose", "utf-8") + "\n\n" + fs.readFileSync(__dirname + "/../../x/.XCompose", "utf-8");
 const unicodedata = fs.readFileSync(__dirname + "/deps/UnicodeData.txt", "utf-8");
 
 const codepoint_to_name = [];
@@ -67,4 +67,4 @@ for(const line of composefile.split("\n")) {
 	}
 }
 
-fs.writeFileSync(__dirname+"/../docs/x/keysdata.js", "const data = [\n" + result.map(l => "    " + JSON.stringify(l)).join(",\n") + "\n]", "utf-8");
+fs.writeFileSync(__dirname+"/../../docs/x/keysdata.js", "const data = [\n" + result.map(l => "    " + JSON.stringify(l)).join(",\n") + "\n]", "utf-8");

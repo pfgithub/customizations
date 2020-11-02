@@ -14,4 +14,10 @@ for(const line of bmfile.split("//!")) {
 	resfile += "\n\n" + "<a href=\""+code+"\""+">"+name+"</a> - "+desc+" - `"+code+"`";
 }
 
+resfile += `
+
+## Make your own
+
+[link](https://pfg.pw/sitepages/bookmarklet)`;
+
 fs.writeFileSync(__dirname+"/../../docs/README.md", resfile, "utf-8");

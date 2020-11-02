@@ -3,5 +3,6 @@ function copy --argument filename
         cat $argv | pbcopy
     else
         xclip -selection clipboard $argv
+        xclip -selection primary $argv
     end
 end

@@ -26,3 +26,6 @@ au FocusGained * :checktime
 " vvvvv doesn't work for some reason, idk why
 "au FileType lang set filetype=resyn
 autocmd BufRead,BufNewFile *.lang set filetype=resyn
+autocmd BufRead,BufNewFile *.resyn set filetype=resyn
+
+autocmd BufRead,BufNewFile *.fish set filetype=fish

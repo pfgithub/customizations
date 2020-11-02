@@ -2,7 +2,7 @@
 const speed =+ prompt("speed", "2.0");
 if(!speed) return;
 Array.from(document.querySelectorAll("video, audio, media"))
-	.forEach(elem=>elem.playbackRate=speed);
+.forEach(elem=>elem.playbackRate=speed);
 
 //! Invert Colors :: Toggle invert page colors.
 if(window.__invert_colors) {

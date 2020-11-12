@@ -16,6 +16,9 @@ for_window [class="^.*"] border pixel 1
 # Default all opened windows to floating
 for_window [class="^.*"] floating enable
 
+# Specific overrides
+for_window [window_role="PictureInPicture"] sticky enable, border pixel 0
+
 # Gaps, keep in order apparently
 gaps inner 15
 gaps outer 25
@@ -38,12 +41,12 @@ set $wsW "W"
 set $wsE "E"
 set $wsR "R"
 
-workspace $ws1 DVI-I-0
-workspace $ws2 HDMI-0
-workspace $ws3 DP-0
-workspace $ws4 DP-0
-workspace $ws5 DP-0
-workspace $wsE DP-0
+workspace $ws1 output DVI-I-0
+workspace $ws2 output HDMI-0
+workspace $ws3 output DP-0
+workspace $ws4 output DP-0
+workspace $ws5 output DP-0
+workspace $wsE output DP-0
 
 # ==============
 # Startup Programs
@@ -58,6 +61,8 @@ exec --no-startup-id setxkbmap -option keypad:pointerkeys
 exec --no-startup-id setxkbmap -option compose:ralt
 exec --no-startup-id xmodmap -e "keycode 135 = Multi_key Multi_key Multi_key Multi_key"
 exec --no-startup-id xmodmap -e "keycode 66 = Delete NoSymbol Delete"
+
+exec --no-startup-id thunar --daemon
 
 # notify on copy
 exec --no-startup-id fish -c "while clipnotify; notify-send 'Clipboard Changed' -i notifications -t 500; end"

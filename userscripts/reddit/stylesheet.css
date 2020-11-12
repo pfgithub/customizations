@@ -1,74 +1,102 @@
-body {
-  display: grid;
-  grid-template-rows: [header] max-content [content] max-content [end];
-  grid-template-columns: [content] 1fr [sidebar] 300px [end];
+html {
+    overflow-x: hidden;
 }
 
-body #header {
-  grid-row: header;
-  grid-column: content / end;
+body{
+	
+	display: grid;
+	grid-template-rows: [header] max-content [content] max-content [end];
+	grid-template-columns: [farleft] 0 [content] 1fr [sidebar] 300px [end] 50px [farright];
+	
 }
-body .content {
-  grid-row: content;
-  grid-column: content;
+
+body.comments-page {
+	grid-template-columns: [farleft] 1fr [content] minmax(0, 800px) [sidebar] 300px [end] 1fr [farright];
 }
-body .side {
-  grid-row: content;
-  grid-column: sidebar;
+
+.pinned {
+    display: none; /*I love it when "features" take up half my screen and are annoying to close*/
 }
+
+body > *{ grid-column: content / end; }
+body > #header{ grid-row: header; grid-column: farleft / farright; }
+body > .content{ grid-row: content; grid-column: content; margin: 0; padding: 25px; }
+body > .side{ grid-row: content; grid-column: sidebar; margin: 0; padding: 25px; }
 
 .link {
-  margin: 10px;
-  padding: 10px;
-  box-shadow: 0 0 25px rgba(0, 0, 0, 0.1);
-  border-radius: 10px;
+
+    margin: 10px;
+    padding: 10px;
+    box-shadow: 0 0 25px rgba(0,0,0,0.1);
+    border-radius: 10px;
+
 }
 
 .commentarea > div > .comment {
-  margin: 10px;
-  padding: 10px;
-  box-shadow: 0 0 25px rgba(0, 0, 0, 0.1);
-  border: 0 !important;
-  border-radius: 10px !important;
+
+    margin: 10px 0 10px 0;
+    padding: 10px 0 10px 0;
+    box-shadow: 0 0 25px rgba(0,0,0,0.1);
+	border: 0 !important;
+    border-radius: 10px !important;
+	
 }
 
 .res-commentBoxes.res-commentBoxes-rounded .comment {
-  border-radius: 10px !important;
+	
+    border-radius: 10px !important;
+	
 }
 
 .link .usertext-body .md {
-  margin: 25px;
-  padding: 15px;
-  box-shadow: 0 0 25px rgba(0, 0, 0, 0.2);
-  border-radius: 10px;
-  border: 0;
+	
+	margin: 25px;
+	padding: 15px;
+	box-shadow: 0 0 25px rgba(0,0,0,0.2);
+	border-radius: 10px;
+	border: 0;
+	
 }
 
-.entry.res-selected,
-.entry.res-selected .md-container {
-  background-color: #ffffff !important;
+.entry.res-selected, .entry.res-selected .md-container {
+	
+	background-color: #FFFFFF !important;
+	
 }
 
-.side {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: max-content max-content max-content [top] max-content;
+.hover.redditname{
+	display:none;
 }
-.side .spacer {
-  grid-column: span 3;
-}
-.side .spacer:nth-child(5) {
-  grid-row: top;
-}
-.hover.redditname {
-  display: none;
-}
-.premium-banner-outer {
-  display: none;
+.premium-banner-outer{
+	display:none;	
 }
 
-.tagline {
+.comment .child, .comment .showreplies {
+    border-left: none;
 }
-.tagline {
-  /*! position: relative; */
+
+.child {
+    margin-top: 0;
+    padding-top: 10px;
 }
+
+#header {
+    position: sticky;
+    top: 0;
+}
+#redesign-beta-optin-btn {
+    display: none;
+}
+.user > a {
+    color: transparent;
+}
+.user > a:hover {
+    color: rgb(125, 173, 212);
+}
+
+/* neat effect but it messes with scrolling when resizing the page */
+/*.comment > .midcol {
+    position: sticky;
+    top: 75px;
+    z-index: 1;
+}*/

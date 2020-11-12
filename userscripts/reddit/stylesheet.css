@@ -64,9 +64,6 @@ body > .side{ grid-row: content; grid-column: sidebar; margin: 0; padding: 25px;
 	
 }
 
-.hover.redditname{
-	display:none;
-}
 .premium-banner-outer{
 	display:none;	
 }

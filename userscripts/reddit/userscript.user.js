@@ -11,7 +11,9 @@
 if(!window.__RedditOldScrollCallback){
     window.__RedditOldScrollCallback = (e) => {
         let temp0 = e.currentTarget;
-        if(temp0.getBoundingClientRect().top < 0) { temp0.scrollIntoView(); document.documentElement.scrollTop -= document.getElementById("header").clientHeight + 10; }
+        const topv = temp0.getBoundingClientRect().top;
+        const heightv = document.getElementById("header").clientHeight + 10;
+        if(topv < heightv) { temp0.scrollIntoView(); document.documentElement.scrollTop -= heightv; }
     };
 }
 setInterval(() => {

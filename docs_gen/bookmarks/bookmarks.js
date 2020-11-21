@@ -14,3 +14,6 @@ if(window.__invert_colors) {
   background: black;}`));
   	document.head.appendChild(window.__invert_colors);
 }
+
+//! Youtube Transform :: Apply css transformations to youtube videos.
+document.querySelector(".html5-main-video").style.transform = "" + prompt("transform", document.querySelector(".html5-main-video").style.transform)

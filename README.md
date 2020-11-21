@@ -6,6 +6,8 @@ click and drag a link to the bookmarks bar
 
 <a href="javascript:(function()%7Bif(window.__invert_colors)%20%7B%0A%20%20%20%20window.__invert_colors.remove();%0A%20%20%20%20window.__invert_colors%20=%20null;%0A%7Delse%7B%0A%20%20%09window.__invert_colors%20=%20document.createElement(%22style%22);%0A%20%20%09window.__invert_colors.appendChild(document.createTextNode(%60html%7Bfilter:%20invert(100%25);%0A%20%20background:%20black;%7D%60));%0A%20%20%09document.head.appendChild(window.__invert_colors);%0A%7D%7D)()">Invert Colors</a> - Toggle invert page colors. - `javascript:(function()%7Bif(window.__invert_colors)%20%7B%0A%20%20%20%20window.__invert_colors.remove();%0A%20%20%20%20window.__invert_colors%20=%20null;%0A%7Delse%7B%0A%20%20%09window.__invert_colors%20=%20document.createElement(%22style%22);%0A%20%20%09window.__invert_colors.appendChild(document.createTextNode(%60html%7Bfilter:%20invert(100%25);%0A%20%20background:%20black;%7D%60));%0A%20%20%09document.head.appendChild(window.__invert_colors);%0A%7D%7D)()`
 
+<a href="javascript:(function()%7Bdocument.querySelector(%22.html5-main-video%22).style.transform%20=%20%22%22%20+%20prompt(%22transform%22,%20document.querySelector(%22.html5-main-video%22).style.transform)%7D)()">Youtube Transform</a> - Apply css transformations to youtube videos. - `javascript:(function()%7Bdocument.querySelector(%22.html5-main-video%22).style.transform%20=%20%22%22%20+%20prompt(%22transform%22,%20document.querySelector(%22.html5-main-video%22).style.transform)%7D)()`
+
 ## Make your own
 
 [link](https://pfg.pw/sitepages/bookmarklet)

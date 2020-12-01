@@ -1,8 +1,18 @@
-//! 2x :: Set speed of videos on the page.
-const speed =+ prompt("speed", "2.0");
+//! 2x :: Set speed of videos on the page. 1 click = 2x, 2 click = 1.5x, 3+ click = prompt
+const defaults="defaults(__2.0_1.5__)".split("_").filter(w=>+w);
+if(window.__2x_click_time + 1000 < Date.now() || !window.__2x_state) window.__2x_state = 0;
+window.__2x_click_time = Date.now();
+const speed = defaults[window.__2x_state] ||+ prompt("speed", "2.0");
+window.__2x_state += 1;
 if(!speed) return;
 Array.from(document.querySelectorAll("video, audio, media"))
 .forEach(elem=>elem.playbackRate=speed);
+const notif = document.createElement("div");
+notif.setAttribute("style", "position: fixed; z-index: 10000000000000000; top: 0; left: 0;"
++"background-color: black; color: white; padding: 10px;");
+notif.innerText = "" + speed + "x";
+document.body.appendChild(notif);
+setTimeout(() => notif.remove(), 200);
 
 //! Invert Colors :: Toggle invert page colors.
 if(window.__invert_colors) {

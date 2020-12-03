@@ -1,6 +1,6 @@
 //! 2x :: Set speed of videos on the page. 1 click = 2x, 2 click = 1.5x, 3+ click = prompt
 const defaults="____defaults*(__2.0_1.5__)____".split("_").filter(w=>+w);
-if(window.__2x_click_time + 1000 < Date.now() || !window.__2x_state) window.__2x_state = 0;
+if(window.__2x_click_time + 200 < Date.now() || !window.__2x_state) window.__2x_state = 0;
 window.__2x_click_time = Date.now();
 const speed = defaults[window.__2x_state] ||+ prompt("speed", "2.0");
 window.__2x_state += 1;

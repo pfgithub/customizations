@@ -8,6 +8,12 @@
 // @grant        none
 // ==/UserScript==
 
+/////////////////////////////////////////////////////////////////
+
+// disabled because reddit doesn't work properly within an iframe
+(() => {
+const ENABLE_PWA = false;
+
 if(!window.__RedditOldScrollCallback){
     window.__RedditOldScrollCallback = (e) => {
         let temp0 = e.currentTarget;
@@ -25,7 +31,58 @@ function isModifiedEvent(event) {
   return !!(event.metaKey || event.altKey || event.ctrlKey || event.shiftKey);
 }
 
-let modalZIndex = 100000;
+
+
+async function fetchDuplicates() {
+    // note that this will fail for the subreddit r/comments oops
+    const dpurl = location.href.replace("/comments/", "/duplicates/") + ".json";
+    return await (await fetch(dpurl)).json();
+}
+
+function mka(text, href) {
+    const link = document.createElement("a");
+    link.setAttribute("href", href);
+    link.appendChild(document.createTextNode(text));
+    return link;
+}
+
+if(window.____is____details) window.____is____details.remove();
+const linkinfo_area = document.querySelector(".side > .spacer > .linkinfo");
+if(linkinfo_area) {(async () => {
+    const details = document.createElement("details");
+    window.____is____details = details;
+
+    const summary = document.createElement("summary");
+    summary.appendChild(document.createTextNode("… Duplicates"));
+    details.appendChild(summary);
+    linkinfo_area.appendChild(details);
+
+    const duplicates = await fetchDuplicates();
+    const children = duplicates[1].data.children;
+    summary.innerText = children.length + " Duplicates";
+
+    const ul = document.createElement("ul");
+    details.appendChild(ul);
+    for(const {data} of children) {
+        console.log(data);
+
+        const li = document.createElement("li");
+        ul.appendChild(li);
+
+        if(data.score_hidden) li.appendChild(document.createTextNode("[---] "))
+        else li.appendChild(document.createTextNode("["+(data.score>0?"+":"")+data.score+"] "));
+
+        li.appendChild(mka(data.title, data.permalink));
+
+        li.appendChild(document.createTextNode(" — "));
+
+        li.appendChild(mka(data.subreddit_name_prefixed, "/"+data.subreddit_name_prefixed));
+    }
+})()}
+
+
+
+let modalZIndex = 1000000;
 
 let css = document.createElement("style");
 css.appendChild(document.createTextNode(`
@@ -60,7 +117,10 @@ css.appendChild(document.createTextNode(`
   background: linear-gradient(to right, transparent 40%, #aaa 40%, #aaa 60%, transparent 60%);
 }
 .comment.collapsed > .entry > .tagline > .expand {
-  background: rgba(0, 0, 0, 0) url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA0AAAANBAMAAACAxflPAAAAJFBMVEUaGhtPvP8hMz5AkcI+i7srUGcfLDRJrOk0aosvW3coSFwxY4GN0McTAAAARUlEQVQI12NgYFANYgCBZEFBMyDFVigoKJ7AwMAsKOEoaMDAoCgo6SgoxMAQKOLV4igKpKUnrWwUhYnD1MH0wc2BmIsAAGr+CwVdeNphAAAAAElFTkSuQmCC') no-repeat scroll center center;
+  background: rgba(0, 0, 0, 0) url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA0AAAANBAMAA`
++`ACAxflPAAAAJFBMVEUaGhtPvP8hMz5AkcI+i7srUGcfLDRJrOk0aosvW3coSFwxY4GN0McTAAAARUlEQVQI12NgYFANYg`
++`CBZEFBMyDFVigoKJ7AwMAsKOEoaMDAoCgo6SgoxMAQKOLV4igKpKUnrWwUhYnD1MH0wc2BmIsAAGr+CwVdeNphAAAAAEl`
++`FTkSuQmCC') no-repeat scroll center center;
 }
 
 .__pfg_RedditModalExitArea{
@@ -238,6 +298,7 @@ setInterval(() => {
         }
         if(!ahref.startsWith(location.origin)){return;}
         a.addEventListener("click", e => {
+            if(ENABLE_PWA) return;
             if (
                 !event.defaultPrevented && // onClick prevented default
                 event.button === 0 && // ignore everything but left clicks
@@ -254,3 +315,4 @@ setInterval(() => {
         });
     });
 }, 1000);
+})()

@@ -1,23 +1,63 @@
-reddit styling adjustments to make it look better and act more like new.reddit (but without collapsing a comment causing the entire page to react rerender)
+old.reddit adjustments to make it more like new.reddit
 
-- works with res
-- make sure to disable custom subreddit styles
-- old.reddit.com
-- single page app (clicking links to comments will keep you on the same page and you can go back and forwards in history)
-- press escape to leave a comment page
-- uses popstate when you exit a post (unlike new.reddit which just pushes a new history state)
-- turns link buttons into link buttons without the context menu options (removes the href so options like "open in new tab" are no longer there)
-- uses css grid
-- collapse button is available on the entire height of the comment (like new.reddit), scrolls properly when you are halfway through a comment when collapsing (like top level comments on new.reddit but everywhere), and does not have the vote buttons covering the top of it
+# to use:
+
+- disable subreddit custom stylesheets
+- install tampermonkey or something
+- [add the userscript](https://github.com/pfgithub/customizations/raw/master/userscripts/reddit/userscript.user.js)
+- add the optional but recommended [stylesheet.css](https://raw.githubusercontent.com/pfgithub/customizations/master/userscripts/reddit/stylesheet.css) somehow glhf
+
+# adds:
+
+## duplicate viewing functionality
+
+view the same post in other subreddits, like new.reddit
+
+![sidebar section showing duplicates](https://user-images.githubusercontent.com/6010774/101238514-a6b77500-3695-11eb-8874-797e8f969207.png)
+
+## full height comment collapse buttons
+
+click anywhere on the left of a comment to collapse it, like new.reddit but even better
+
+![screenshot of that](https://user-images.githubusercontent.com/6010774/101238612-2e9d7f00-3696-11eb-9b27-a6690b4c2566.png)
+
+better than new.reddit because:
+
+- no lag when collapsing a comment
+- scroll will always end up in the right place, unlike new.reddit where scroll only ends up in the right place if you collapse a top level comment
+
+## no more "open link in new tab" for save/report/…
+
+![image](https://user-images.githubusercontent.com/6010774/101238619-3c530480-3696-11eb-9c54-67563404e280.png)
+
+## \[disabled] single page app functionality
+
+this was implemented with iframes and caused issues because the inner frame could not authenticate requests, and I'm not sure why
+
+clicking comments links would open an iframe. you could press escape or click out to close it.
+
+unlike new.reddit, this correctly popped the state when you exited a post, rather than pushing a new state
 
 issues:
 
 - many links that should be normal actually pushstate (user profile pages and subreddit sorting options)
-- adds a horizontal scrollbar to the page with blank content
-- very buggy with back and forwards button sometimes
-- stylesheet is broken with custom subreddit styles and sometimes broken with extra sidebar things because it was written badly
+- doesn't let requests through because of some iframe issue
+- buggy with back and forwards button occasionally
 
-screenshots:
 
-[![https://i.imgur.com/mSADVjR.png](https://i.imgur.com/mSADVjR.png)](https://i.imgur.com/mSADVjR.png)
-[![https://i.imgur.com/0WLCGUX.png](https://i.imgur.com/0WLCGUX.png)](https://i.imgur.com/0WLCGUX.png)
+# works with:
+
+- darkreader
+- maybe res
+
+# (optional, recommended) stylesheet.css
+
+some reddit styling adjustments
+
+- shadows
+- centered content like new.reddit
+
+supports
+
+- darkreader
+- res probably

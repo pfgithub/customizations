@@ -298,7 +298,7 @@ setInterval(() => {
         }
         if(!ahref.startsWith(location.origin)){return;}
         a.addEventListener("click", e => {
-            if(ENABLE_PWA) return;
+            if(!ENABLE_PWA) return;
             if (
                 !event.defaultPrevented && // onClick prevented default
                 event.button === 0 && // ignore everything but left clicks

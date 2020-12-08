@@ -8,6 +8,8 @@ click and drag a link to the bookmarks bar
 
 <a href="javascript:(function()%7Bdocument.querySelector(%22.html5-main-video%22).style.transform%20=%20%22%22%20+%20prompt(%22transform%22,%20document.querySelector(%22.html5-main-video%22).style.transform)%7D)()">Youtube Transform</a> - Apply css transformations to youtube videos. - `javascript:(function()%7Bdocument.querySelector(%22.html5-main-video%22).style.transform%20=%20%22%22%20+%20prompt(%22transform%22,%20document.querySelector(%22.html5-main-video%22).style.transform)%7D)()`
 
+<a href="javascript:(function()%7B%7B%0Aconst%20signupwall%20=%20Array.from(document.querySelectorAll(%22div%22)).filter(q%20=%3E%20q.id.endsWith(%22_signup_wall_wrapper%22))%5B0%5D;%0Asignupwall.remove();%0Adocument.querySelector(%22.signup_wall_prevent_scroll%22).classList.remove(%22signup_wall_prevent_scroll%22);%0A%7D%7D)()">Quora Signupwall</a> - Remove the quora signup wall - `javascript:(function()%7B%7B%0Aconst%20signupwall%20=%20Array.from(document.querySelectorAll(%22div%22)).filter(q%20=%3E%20q.id.endsWith(%22_signup_wall_wrapper%22))%5B0%5D;%0Asignupwall.remove();%0Adocument.querySelector(%22.signup_wall_prevent_scroll%22).classList.remove(%22signup_wall_prevent_scroll%22);%0A%7D%7D)()`
+
 ## Make your own
 
 [link](https://pfg.pw/sitepages/bookmarklet)

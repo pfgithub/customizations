@@ -27,3 +27,10 @@ if(window.__invert_colors) {
 
 //! Youtube Transform :: Apply css transformations to youtube videos.
 document.querySelector(".html5-main-video").style.transform = "" + prompt("transform", document.querySelector(".html5-main-video").style.transform)
+
+//! Quora Signupwall :: Remove the quora signup wall
+{
+const signupwall = Array.from(document.querySelectorAll("div")).filter(q => q.id.endsWith("_signup_wall_wrapper"))[0];
+signupwall.remove();
+document.querySelector(".signup_wall_prevent_scroll").classList.remove("signup_wall_prevent_scroll");
+}

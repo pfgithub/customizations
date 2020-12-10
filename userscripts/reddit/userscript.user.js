@@ -4,7 +4,7 @@
 // @version      0.1
 // @description  try to take over the world!
 // @author       pfg
-// @match        https://old.reddit.com/*
+// @match        https://*.reddit.com/*
 // @grant        none
 // ==/UserScript==
 
@@ -57,9 +57,11 @@ if(linkinfo_area) {(async () => {
     details.appendChild(summary);
     linkinfo_area.appendChild(details);
 
+    details.appendChild(mka("View All", location.href.replace("/comments/", "/duplicates/")));
+
     const duplicates = await fetchDuplicates();
     const children = duplicates[1].data.children;
-    summary.innerText = children.length + " Duplicates";
+    summary.innerText = children.length + " Duplicate"+(children.length == 1 ? "" : "s");
 
     const ul = document.createElement("ul");
     details.appendChild(ul);

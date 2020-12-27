@@ -298,6 +298,12 @@ setInterval(() => {
         if(ahref.startsWith("/")) {
             ahref = location.origin + ahref;
         }
+        if(ahref.startsWith("https://giphy.com/gifs/")) {
+            const children = Array.from(a.childNodes);
+            if(children.length === 1 && children[0].tagName.toLowerCase() === "img") {
+                a.replaceChild(document.createTextNode("[embedded gif]"), children[0]);
+            }
+        }
         if(!ahref.startsWith(location.origin)){return;}
         a.addEventListener("click", e => {
             if(!ENABLE_PWA) return;

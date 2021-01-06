@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         FileFormat.info copy character
 // @namespace    https://pfg.pw/
-// @version      0.1
+// @version      0.2
 // @description  add a quick textfield to copy characters
 // @author       pfg
 // @match        *://*.fileformat.info/*
@@ -12,7 +12,7 @@
   let v = String.fromCodePoint(
     +document
       .evaluate(
-        "/html/body/div[4]/div/div/table[4]/tbody/tr[7]/td[2]",
+        "/html/body/div[4]/div/div/table[4]/tbody/tr[9]/td[2]",
         document,
         null,
         XPathResult.FIRST_ORDERED_NODE_TYPE,

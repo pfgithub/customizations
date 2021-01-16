@@ -10,6 +10,6 @@ click and drag a link to the bookmarks bar
 
 <a href="javascript:(function()%7B%7B%0Aconst%20signupwall%20=%20Array.from(document.querySelectorAll(%22div%22)).filter(q%20=%3E%20q.id.endsWith(%22_signup_wall_wrapper%22))%5B0%5D;%0Asignupwall.remove();%0Adocument.querySelector(%22.signup_wall_prevent_scroll%22).classList.remove(%22signup_wall_prevent_scroll%22);%0A%7D%7D)()">Quora Signupwall</a> - Remove the quora signup wall - `javascript:(function()%7B%7B%0Aconst%20signupwall%20=%20Array.from(document.querySelectorAll(%22div%22)).filter(q%20=%3E%20q.id.endsWith(%22_signup_wall_wrapper%22))%5B0%5D;%0Asignupwall.remove();%0Adocument.querySelector(%22.signup_wall_prevent_scroll%22).classList.remove(%22signup_wall_prevent_scroll%22);%0A%7D%7D)()`
 
-## Make your own
+[Make your Own](https://pfg.pw/sitepages/bookmarklet)
 
-[link](https://pfg.pw/sitepages/bookmarklet)
+[Edit this Page](https://github.com/pfgithub/customizations/edit/master/docs_gen/bookmarks/bookmarks.js)

@@ -16,8 +16,8 @@ for(const line of bmfile.split("//!")) {
 
 resfile += `
 
-## Make your own
+[Make your Own](https://pfg.pw/sitepages/bookmarklet)
 
-[link](https://pfg.pw/sitepages/bookmarklet)`;
+[Edit this Page](https://github.com/pfgithub/customizations/edit/master/docs_gen/bookmarks/bookmarks.js)`;
 
 fs.writeFileSync(__dirname+"/../../docs/README.md", resfile, "utf-8");

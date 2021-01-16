@@ -20,8 +20,8 @@ if(window.__invert_colors) {
     window.__invert_colors = null;
 }else{
   	window.__invert_colors = document.createElement("style");
-  	window.__invert_colors.appendChild(document.createTextNode(`html{filter: invert(100%);
-  background: black;}`));
+  	window.__invert_colors.appendChild(document.createTextNode(`html{filter: invert(100%) hue-rotate(180deg) contrast(90%);
+  background: #0d0d0d;}`));
   	document.head.appendChild(window.__invert_colors);
 }
 

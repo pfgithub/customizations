@@ -21,7 +21,7 @@ if(window.__invert_colors) {
 }else{
   	window.__invert_colors = document.createElement("style");
   	window.__invert_colors.appendChild(document.createTextNode(`html{filter: invert(100%) hue-rotate(180deg) contrast(90%);
-  background: #0d0d0d;} img{filter: invert(100%);}`));
+  background: #0d0d0d;} img{filter: invert(100%) hue-rotate(180deg);}`));
   	document.head.appendChild(window.__invert_colors);
 }
 

@@ -2,7 +2,10 @@
 const defaults="____defaults*(__2.0_1.5__)____".split("_").filter(w=>+w);
 if(window.__2x_click_time + 200 < Date.now() || !window.__2x_state) window.__2x_state = 0;
 window.__2x_click_time = Date.now();
+if(window.__is_prompting) return;
+window.__is_prompting = true;
 const speed = defaults[window.__2x_state] ||+ prompt("speed", "2.0");
+window.__is_prompting = false;
 window.__2x_state += 1;
 if(!speed) return;
 Array.from(document.querySelectorAll("video, audio, media"))

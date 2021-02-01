@@ -1,0 +1,10 @@
+/* for centering pages with lots of text but no styling */
+/* in many cases, reader mode works just as well */
+
+body {
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}

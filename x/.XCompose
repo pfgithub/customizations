@@ -17,6 +17,9 @@ include "%L"
 <Multi_key> <semicolon> <semicolon> : "·" # Unnecessary, ralt.- is good enough.
 <Multi_key> <O> <period> : "Ꙩ"
 <Multi_key> <o> <period> : "ꙩ"
+<Multi_key> <O> <P> : "℗"
+<Multi_key> <O> <p> : "℗"
+<Multi_key> <o> <p> : "℗"
 <Multi_key> <asciitilde> <equal> : "≈"
 <Multi_key> <bar> <u> : "μ"
 <Multi_key> <p> <i> : "π"
@@ -31,10 +34,14 @@ include "%L"
 <Multi_key> <b> <l> : "Ы"
 <Multi_key> <s> <i> <g> <m> <a> : "∑"
 <Multi_key> <bar> <s> : "∫" # int is taken already
+<Multi_key> <bar> <S> : "∫"
+<Multi_key> <S> <bar> : "∫"
+<Multi_key> <s> <bar> : "∫"
 <Multi_key> <n> <o> <t> : "¬" # also -,
 <Multi_key> <colon> <equal> : "≔"
 <Multi_key> <s> <q> <r> <t> : "√" # v/ also which is easier
-<Multi_key> <c> <x> : "🗙"
+#<Multi_key> <c> <x> : "🗙"
+<Multi_key> <c> <x> : "✗"
 <Multi_key> <c> <v> : "✓"
 <Multi_key> <a> <A> : "🗚"
 <Multi_key> <A> <a> : "🗛"
@@ -42,11 +49,18 @@ include "%L"
 <Multi_key> <e> <a> : "ᴂ" # ea sports it's in the game
 <Multi_key> <E> <t> : "🙲"
 <Multi_key> <e> <t> : "🙰"
+<Multi_key> <c> <slash> <o> : "℅"
 <Multi_key> <a> <period> <period> <period> : "⎁"
 <Multi_key> <apostrophe> <period> : "′"
 <Multi_key> <apostrophe> <apostrophe> <period> : "″"
 <Multi_key> <apostrophe> <apostrophe> <apostrophe> <period> : "‴"
 <Multi_key> <apostrophe> <apostrophe> <apostrophe> <apostrophe> <period> : "⁗"
+<Multi_key> <period> <comma> : "‥"
+<Multi_key> <s> <u> <s> : "ඞ" # amogus
+<Multi_key> <F> <A> <X> : "℻"
+
+<Multi_key> <l> <b> : "£"
+<Multi_key> <n> <y> : "ñ"
 
 <Multi_key> <minus> <equal> : "≡"
 <Multi_key> <equal> <minus> : "≡"
@@ -208,10 +222,12 @@ include "%L"
 <Multi_key> <E> <E> : "ɛ"
 <Multi_key> <I> <I> : "ɪ"
 <Multi_key> <v> <v> : "ᴧ"
+<Multi_key> <V> <V> : "Ʌ"
 <Multi_key> <u> <o> : "ʊ"
 <Multi_key> <colon> <colon> : "ː"
 <Multi_key> <n> <g> : "ŋ"
 <Multi_key> <n> <j> : "ŋ"
+<Multi_key> <s> <h> : "ʃ"
 
 # Compose sequences which outputs strings (as opposed to just boring characters) seem to work in some applications.
 #<Multi_key> <g> <i> <f> : "gɪf"
@@ -427,6 +443,7 @@ include "%L"
 ## Fractions
 <Multi_key> <slash> <slash> : "⁄" # ^4 // _3 = ⁴⁄₃
 <Multi_key> <1> <slash> <2> : "½"
+<Multi_key> <0> <slash> <3> : "↉"
 <Multi_key> <1> <slash> <3> : "⅓"
 <Multi_key> <2> <slash> <3> : "⅔"
 <Multi_key> <1> <slash> <4> : "¼"
@@ -478,6 +495,7 @@ include "%L"
 
 ## Greek Small Letters
 <Multi_key> <g> <a> : "α"    U03B1    # GREEK SMALL LETTER ALPHA
+<Multi_key> <a> <less> : "α"    U03B1    # GREEK SMALL LETTER ALPHA
 <Multi_key> <g> <b> : "β"    U03B2    # GREEK SMALL LETTER BETA
 <Multi_key> <g> <g> : "γ"    U03B3    # GREEK SMALL LETTER GAMMA
 <Multi_key> <g> <d> : "δ"    U03B4    # GREEK SMALL LETTER DELTA

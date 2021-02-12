@@ -39,3 +39,13 @@ if [ (pwd) = ~/Dev/Node/temp/waiting ]
     mktemp
 end
 
+functions -c fish_prompt __old_fish_prompt
+
+function fish_prompt
+    __old_fish_prompt $argv
+    if set -q _shell_preload_command
+        commandline --replace $_shell_preload_command
+        set -e _shell_preload_command
+    end
+end
+

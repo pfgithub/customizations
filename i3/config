@@ -11,10 +11,10 @@ set $alt Mod1
 floating_modifier $mod
 
 # 1px window border. recommended to mod+Shift+b whenever possible, borders look bad
-for_window [class="^.*"] border pixel 1
+for_window [title="^[^:]"] border pixel 1
 
 # Default all opened windows to floating
-for_window [class="^.*"] floating enable
+for_window [title="^[^:]"] floating enable
 
 # Specific overrides
 for_window [window_role="PictureInPicture"] sticky enable, border pixel 0
@@ -63,6 +63,7 @@ exec --no-startup-id xmodmap -e "keycode 135 = Multi_key Multi_key Multi_key Mul
 exec --no-startup-id xmodmap -e "keycode 66 = Delete NoSymbol Delete"
 
 exec --no-startup-id thunar --daemon
+exec --no-startup-id fish -c "bgrun fcitx"
 
 # notify on copy
 exec --no-startup-id fish -c "while clipnotify; notify-send 'Clipboard Changed' -i notifications -t 500; end"

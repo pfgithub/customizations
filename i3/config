@@ -51,35 +51,7 @@ workspace $wsE output DP-0
 # ==============
 # Startup Programs
 # ==============
-
-# input settings
-# Shift+numlock — temporarily enable pointer keys. pointer keys will disable at random at some future point in time and must be re-enabled. always test numpad in a safe place before using pointer keys
-# ralt — compose key
-# ContextMenu — compose key (alternate)
-# CapsLock — fowards delete
-exec --no-startup-id setxkbmap -option keypad:pointerkeys
-exec --no-startup-id setxkbmap -option compose:ralt
-exec --no-startup-id xmodmap -e "keycode 135 = Multi_key Multi_key Multi_key Multi_key"
-exec --no-startup-id xmodmap -e "keycode 66 = Delete NoSymbol Delete"
-
-exec --no-startup-id thunar --daemon
-exec --no-startup-id fish -c "bgrun fcitx"
-
-# notify on copy
-exec --no-startup-id fish -c "while clipnotify; notify-send 'Clipboard Changed' -i notifications -t 500; end"
-# disable primary clipboard (always keep empty so at most middle clicking will delete your selection)
-#exec --no-startup-id fish -c "while clipnotify -b primary; echo -n '' | xclip -selection primary; end"
-#jk, this command + gtk = you can't select anything
-
-# other programs.
-# start xfce4-notifyd because one update it randomly decided not to start and no notifyd = every program hangs when it tries to send a notification and the entire system is broken. note that with full notification logging, notification sending will get progressively slower over time (it can take more than 500ms to send a notification) and because apps freeze while sending notifications, this can cause app unresponsiveness. if you are noticing app unresponsiveness check, time notify-send a -i notifications. this issue is because xfce4-notifyd logs notifications by parsing the entire previous log into dictionaries, adding a single entry to the end, and then re-printing the entire file. instead of appending to the file. to work around this, occasionally go to ~/.cache/xfce4/notifyd and mv log somewhere. a new log will be created. (or actually fix the problem in the xfce source code, that works too)
-# start xfce panel. started with disable-wm-check to make it not wait 10 years before starting.
-exec --no-startup-id fish -c "bgrun /usr/lib/xfce4/notifyd/xfce4-notifyd"
-exec --no-startup-id xfce4-panel --disable-wm-check
-# use xrandr to config DP-0 output
-# Note for future me: use `nvidia-settings` to configure display layout if everything suddenly breaks, and make sure to enable Advanced mode to get panning options and stuff
-# Do not use arandr for anything, it's useless
-exec --no-startup-id xrandr --output DP-0 --mode 1920x1080 --rate 239.76
+exec --no-startup-id fish -c "cd ~/.config/i3/init; and source std.fish; and start_terminal -t \": startup :\" -x \"fish all.fish\" -c ~/.config/i3/init"
 
 # recommended i3 font for some reason
 font pango:monospace 8

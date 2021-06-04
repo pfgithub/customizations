@@ -34,6 +34,8 @@ function __fish_cancel_commandline
     commandline ""
     commandline -f repaint
 end
+# v required because fish switched the default keybind
+bind --user \cc __fish_cancel_commandline
 
 if [ (pwd) = ~/Dev/Node/temp/waiting ]
     mktemp

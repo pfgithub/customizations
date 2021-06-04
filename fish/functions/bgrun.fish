@@ -4,6 +4,6 @@ function bgrun -d "run a command in the background (eg bgrun feh img.png)."
     set logfile $logdir/(date +%s)-(openssl rand -hex 16).log
     mkdir -p $logdir
     echo $logfile
-    setsid -f $argv >$logfile
+    setsid -f $argv 2>$logfile >$logfile
     #setsid -f $argv | less +FG
 end

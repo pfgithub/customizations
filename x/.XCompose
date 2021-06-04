@@ -40,7 +40,6 @@ include "%L"
 <Multi_key> <n> <o> <t> : "¬" # also -,
 <Multi_key> <colon> <equal> : "≔"
 <Multi_key> <s> <q> <r> <t> : "√" # v/ also which is easier
-#<Multi_key> <c> <x> : "🗙"
 <Multi_key> <c> <x> : "✗"
 <Multi_key> <c> <v> : "✓"
 <Multi_key> <a> <A> : "🗚"
@@ -56,8 +55,36 @@ include "%L"
 <Multi_key> <apostrophe> <apostrophe> <apostrophe> <period> : "‴"
 <Multi_key> <apostrophe> <apostrophe> <apostrophe> <apostrophe> <period> : "⁗"
 <Multi_key> <period> <comma> : "‥"
-<Multi_key> <s> <u> <s> : "ඞ" # amogus
+<Multi_key> <s> <u> <s> : "ඞ" # amogus (sus)
 <Multi_key> <F> <A> <X> : "℻"
+<Multi_key> <bracketleft> <3> <D> <bracketright> : "🆛"
+<Multi_key> <bracketleft> <2> <N> <D> <bracketright> : "🆜"
+<Multi_key> <bracketleft> <5> <period> <1> <bracketright> : "🆠"
+<Multi_key> <bracketleft> <7> <period> <1> <bracketright> : "🆡"
+<Multi_key> <bracketleft> <2> <2> <2> <bracketright> : "🆢"
+<Multi_key> <bracketleft> <6> <0> <P> <bracketright> : "🆣"
+<Multi_key> <bracketleft> <1> <2> <P> <bracketright> : "🆤"
+<Multi_key> <bracketleft> <d> <bracketright> : "🆥"
+<Multi_key> <bracketleft> <H> <C> <bracketright> : "🆦"
+<Multi_key> <bracketleft> <H> <D> <R> <bracketright> : "🆧"
+<Multi_key> <bracketleft> <H> <i> <bracketright> : "🆨"
+<Multi_key> <bracketleft> <L> <o> <bracketright> : "🆩"
+<Multi_key> <bracketleft> <S> <H> <V> <bracketright> : "🆪"
+<Multi_key> <bracketleft> <V> <O> <D> <bracketright> : "🆬"
+<Multi_key> <bracketleft> <D> <J> <bracketright> : "🆐" # squared disc jockey
+<Multi_key> <parenleft> <c> <c> <parenright> : "🅭"
+<Multi_key> <parenleft> <c> <slash> <parenright> : "🅮"
+<Multi_key> <parenleft> <a> <t> <r> <parenright> : "🅯"
+<Multi_key> <greater> <less> : "≶"
+<Multi_key> <greater> <slash> <less> : "≸"
+
+# video qualities
+<Multi_key> <bracketleft> <S> <D> <bracketright> : "🅌"
+# where is hd?
+<Multi_key> <bracketleft> <U> <H> <D> <bracketright> : "🆫"
+<Multi_key> <bracketleft> <2> <K> <bracketright> : "🆝"
+<Multi_key> <bracketleft> <4> <K> <bracketright> : "🆞"
+<Multi_key> <bracketleft> <8> <K> <bracketright> : "🆟"
 
 <Multi_key> <l> <b> : "£"
 <Multi_key> <n> <y> : "ñ"

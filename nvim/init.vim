@@ -35,7 +35,7 @@ nnoremap <F7> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> t
 \ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
 \ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
 
-let g:markdown_fenced_languages = ['zig', 'uil=uilang', 'js=javascript']
+let g:markdown_fenced_languages = ['zig', 'uil=uilang', 'js=javascript', 'html', 'json']
 
 let g:scrollfix=50
 
@@ -45,3 +45,6 @@ autocmd FileType markdown nmap <buffer><silent> <leader>p :call mdip#MarkdownCli
 " let g:mdip_imgdir = 'img'
 let g:mdip_imgname = 'img'
 let g:mdip_random_name = 'yes'
+
+imap jj <Esc>
+noremap <Leader>s :w<CR>

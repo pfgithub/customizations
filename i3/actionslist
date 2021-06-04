@@ -10,13 +10,14 @@ i3-msg border pixel 1
 i3-msg border pixel 5
 i3-msg border normal
 i3-msg workspace (i3-msg -t get_workspaces | jq '.[].name' -r | rofi -dmenu -p "Workspace")
-
+i3-msg sticky enable
 
 
 # musicplayer
 musicplayer-msg prev
 musicplayer-msg playpause
 musicplayer-msg next
+musicplayer-msg setnextmode (musicplayer-msg listnextmodes | rofi -dmenu -i)
 musicplayer-msg playsong (musicplayer-msg listqueue | rofi -dmenu -i)
-musicplayer-msg playsong (musicplayer-msg listall | rofi -dmenu -i)
-musicplayer-msg queue (musicplayer-msg listall | rofi -dmenu -i)
+musicplayer-msg playsong (ls -t ~/Music | rofi -dmenu -i)
+musicplayer-msg queue (ls -t ~/Music | rofi -dmenu -i)

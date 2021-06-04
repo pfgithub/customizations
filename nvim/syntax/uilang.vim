@@ -17,6 +17,7 @@ syn match uilangName /<[^>]*>/
 syn match uilangKw /[a-zA-Z_][a-zA-Z0-9]*/
 syn match uilangNumber /[0-9]\+/
 syn match uilangAt /@[a-zA-Z0-9_\-]*/
+syn match uilangPercent /%[a-zA-Z0-9_\-]*/
 syn match uilangHash /#[a-zA-Z0-9_\-]*/
 syn match uilangString /"[^"]*"/
 syn match uilangStringSquot /'[^']*'/
@@ -36,6 +37,7 @@ hi def link uilangChars Statement
 hi def link uilangColName Special
 hi def link uilangError Error
 hi def link uilangAt Identifier
+hi def link uilangPercent NonText
 hi def link uilangHash Statement
 hi def link uilangString Constant
 hi def link uilangStringSquot Constant

@@ -13,8 +13,7 @@ intention-inline{display: none;}
 	@indent-guide-color-hard-tab: rgba(255,255,255,0.2);
 	@indent-guide-color-soft-tab: rgba(255,255,255,0.1);
 	@indent-guide-hard-tab-only: false; // Only enable the indent guide for hard tabs.
-	@indent-guide-soft-tab-position: 50%; // The character the indent guide is shown at on soft tabs. Find a value that works.
-	@indent-guide-hard-tab-position: 250%; // The character the indent guide is shown at on hard tabs. Find a value that works.
+	@indent-guide-position: 50%; // The character the indent guide is shown at on soft tabs. Find a value that works.
 
 // Settings for when invisible characters should be shown.
 @invisible-characters: false; // When disabled, only shows important visible characters such as spaces after markdown lines. When enabled, all invisible characters are shown.  Set to false if you usually hide invisible characters in settings, true if you usually show them. Both options require invisible characters enabled in settings.
@@ -442,11 +441,7 @@ span when (@indent-guide) {
 			position:absolute;
 			border-left: 1px solid @indent-guide-color-soft-tab;
 			visibility:visible;
-			transform: translate(50%);
-		}
-		&.hard-tab::before{
-			transform: translate( @indent-guide-hard-tab-position );
-			border-left: 1px solid @indent-guide-color-hard-tab;
+			transform: translate(@indent-guide-position);
 		}
 		&:not(.hard-tab)::before when (@indent-guide-hard-tab-only){
 			visibility:hidden !important;

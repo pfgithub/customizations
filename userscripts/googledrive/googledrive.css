@@ -5,10 +5,8 @@ Apply to:
 - URLs on the domain sheets.google.com
 - URLs on the domain slides.google.com
 */
-
 .kix-cursor:nth-child(1) {
-  transition: 0.1s top ease-in-out, 0.1s left ease-in-out,
-    0.1s opacity ease-in-out;
+  transition: 0.1s top ease-in-out, 0.1s left ease-in-out, 0.1s opacity ease-in-out;
 }
 .kix-cursor:nth-child(1).docs-text-ui-cursor-blink {
   transform-origin: center;
@@ -65,9 +63,30 @@ Apply to:
 .jfk-button.jfk-button-active,
 .kix-embeddedobject-view,
 .apps-shortcutshelppopup,
-.docs-chat-pane-container.docs-material {
+.docs-chat-pane-container.docs-material,
+.kix-stacked-tile-page-shadow {
   border-radius: 10px;
   box-shadow: 0 2.6px 26px 0 rgba(0, 0, 0, 0.2);
+}
+.kix-page-paginated > .kix-stacked-tile-page-shadow {
+  box-shadow: 0 2.6px 26px 0 rgba(0, 0, 0, 0.2);
+}
+.kix-canvas-tile-content {
+  border-radius: 10px;
+  overflow: hidden;
+}
+.kix-page-canvas-compact-mode {
+  border-top: none !important;
+}
+.kix-page-paginated.kix-page-canvas-compact-mode:not(.canvas-first-page)::before {
+  content: "";
+  border-top: 1px solid #ddd;
+  width: 100%;
+  display: block;
+}
+.kix-page.kix-page-compact::before {
+  visibility: visible;
+  border-top: 1px solid #ddd;
 }
 .docs-gm .docs-title-input,
 .goog-toolbar-combo-button-input {
@@ -110,23 +129,18 @@ Apply to:
   background-color: white;
   border: none;
 }
-.kix-page.kix-page-compact::before {
-  visibility: visible;
-  border-top: 1px solid #ddd;
-}
 
 #docs-bars > #docs-toolbar-wrapper {
   border-top: none;
 }
-#kix-horizontal-ruler {
-}
+#kix-horizontal-ruler {}
 .docs-chrome > div {
   border: none;
 }
 
 .goog-toolbar-separator.goog-inline-block {
   visibility: hidden;
-  padding-left: 10px;
+  padding-left: 10px
 }
 
 .docs-explore-widget {
@@ -141,8 +155,7 @@ Apply to:
   height: 0px;
   visibility: hidden;
 }
-.kix-paginateddocumentplugin.kix-paginateddocumentplugin-compact-mode
-  > .docs-ui-unprintable {
+.kix-paginateddocumentplugin.kix-paginateddocumentplugin-compact-mode > .docs-ui-unprintable {
   visibility: hidden;
 }
 .goog-toolbar-button.goog-inline-block.goog-toolbar-button-hover,

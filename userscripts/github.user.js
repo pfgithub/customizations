@@ -24,7 +24,10 @@ window.__c_style.textContent = `
 	outline-offset: -2px;
 }
 .ContributionCalendar.days-selected .ContributionCalendar-day {
-    opacity: 1 !important;
+    opacity: 1;
+}
+.ContributionCalendar-day[data-level="0"] {
+	opacity: 0 !important;
 }
 `;
 document.head.appendChild(window.__c_style);

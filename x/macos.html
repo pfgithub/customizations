@@ -58,19 +58,21 @@ function dictstringify(object, level = 0) {
 
 	res.push("{");
 	for(const [key, value] of Object.entries(object)) {
-        res.push(indent.repeat(level + 1) + JSON.stringify(key) + " = " + dictstringify(value, level + 1));
+        res.push(indent.repeat(level + 1) + JSON.stringify(key) + " = " + dictstringify(value, level + 1) + ";");
     }
-	res.push(indent.repeat(level) + "}");
+	res.push(indent.repeat(level) + "};");
 
 	return res.join("\n");
 }
 
 const dicted = dictstringify(final);
+console.log(dicted, final);
+
+const main = document.getElementById("loadingdeleteme");
+main.innerHTML = "";
 const preel = document.createElement("pre");
-document.body.appendChild(preel);
 preel.appendChild(document.createTextNode(dicted));
-document.getElementById("loadingdeleteme").remove();
-console.log(dicted, final)
+main.appendChild(preel);
 }
     </script>
 	</body>

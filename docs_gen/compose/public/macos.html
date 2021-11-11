@@ -60,7 +60,7 @@ function dictstringify(object, level = 0) {
 	for(const [key, value] of Object.entries(object)) {
         res.push(indent.repeat(level + 1) + JSON.stringify(key) + " = " + dictstringify(value, level + 1) + ";");
     }
-	res.push(indent.repeat(level) + "};");
+	res.push(indent.repeat(level) + "}");
 
 	return res.join("\n");
 }

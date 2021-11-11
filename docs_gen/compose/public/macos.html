@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+	<head>
+		<meta charset="utf-8">
+		<title>macos .xcompose</title>
+	</head>
+	<body>
+		<div id="loadingdeleteme">… Loading</div>
+		<script src="keysdata.js" charset="utf-8"></script>
+    <noscript>need the js</noscript>
+    <script>
+{
+// note: mac allows for arrow keys and modifiers to be used in a compose file
+// $key = shift + key
+// ~key = option + key
+//
+// "\UF700" = up
+// "\UF701" = down
+// "\UF702" = left
+// "\UF703" = right
+//
+// this can allow for eg ralt arrow keys to
+// create arrows. could be fun to have eg
+// ralt up . for a normal arrow and ralt
+// up ! for a squishy arrow or smth
+// and then we could have ralt right down
+// . for like an arrow right down and
+// other fun stuff like that for diagonal
+// arrows and all that
+//
+// note "$" must be escaped so "\$" when
+// you don't want to use shift
+const final = {};
+data.filter(l => l[0] === "⎄").forEach(([, result, ...sequences]) => {
+	sequences.forEach(sequence => {
+		let to = final;
+		for(const item of sequence) {
+			let sym = item.symbol;
+			if(sym === "⎄") sym = "§";
+			if(sym.startsWith("#<")) return; // ignored, my keyboard doesn't have dead keys
+			if(sym.includes("$")) sym = sym.replace("$", "\\$");
+			if(sym.includes("~")) sym = sym.replace("~", "\\~");
+if(sym === "3km") console.log(item, sequence, result);
+			to[sym] ??= {};
+			to = to[sym];
+		}
+		to["!!$raw"] = '("insertText:", '+JSON.stringify(result.char)+')';
+	});
+});
+
+const indent = "    ";
+function dictstringify(object, level = 0) {
+	if(object["!!$raw"]) {
+		return object["!!$raw"];
+	}
+
+	const res = [];
+
+	res.push("{");
+	for(const [key, value] of Object.entries(object)) {
+        res.push(indent.repeat(level + 1) + JSON.stringify(key) + " = " + dictstringify(value, level + 1));
+    }
+	res.push(indent.repeat(level) + "}");
+
+	return res.join("\n");
+}
+
+const dicted = dictstringify(final);
+const preel = document.createElement("pre");
+document.body.appendChild(preel);
+preel.appendChild(document.createTextNode(dicted));
+document.getElementById("loadingdeleteme").remove();
+console.log(dicted, final)
+}
+    </script>
+	</body>
+</html>

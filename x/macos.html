@@ -46,9 +46,17 @@ data.filter(l => l[0] === "⎄").forEach(([, result, ...sequences]) => {
 			let sym = item.symbol;
 			if(sym === "⎄") sym = "§";
 			if(sym.startsWith("#<")) return; // ignored, my keyboard doesn't have dead keys
+
+            if(sym.startsWith("<Keypad")) return; // causes warnings
+            if(sym.codePointAt(0) >= 119127 && sym.codePointAt(0) <= 119228) return; // causes warnings
+            if(sym.codePointAt(0) === 1513) return; // causes warnings
+            if(sym.codePointAt(0) === 64329) return; // causes warnings
+
+			if(sym === "שּ") console.log(sym, sym.codePointAt());
+
 			if(sym.includes("$")) sym = sym.replace("$", "\\$");
 			if(sym.includes("~")) sym = sym.replace("~", "\\~");
-if(sym === "3km") console.log(item, sequence, result);
+
 			to[sym] ??= {};
 			to = to[sym];
 		}
@@ -81,6 +89,14 @@ main.innerHTML = "";
 const preel = document.createElement("pre");
 preel.appendChild(document.createTextNode(dicted));
 main.appendChild(preel);
+
+
+    if(false) {
+        {
+            const warnings = `... paste warnings...`;
+            [...warnings.matchAll(/Bad key binding atom for '(.+?)'/g)].map(v => v[1]).filter(w => !w.startsWith("<Keypad")).map(w => w.codePointAt(0)).sort((a, b) => a - b)
+        }
+    }
 }
     </script>
 	</body>

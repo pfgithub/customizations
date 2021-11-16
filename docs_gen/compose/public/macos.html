@@ -56,6 +56,7 @@ data.filter(l => l[0] === "⎄").forEach(([, result, ...sequences]) => {
 
 			if(sym.includes("$")) sym = sym.replace("$", "\\$");
 			if(sym.includes("~")) sym = sym.replace("~", "\\~");
+			if(sym.includes("^")) sym = sym.replace("^", "\\^");
 
 			to[sym] ??= {};
 			to = to[sym];

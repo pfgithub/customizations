@@ -11,105 +11,46 @@
 // the data is already stored in-memory and is easy to access.
 // https://thread.pfg.pw/reddit/r/youtube/comments/qtyn45/i_coded_a_userscript_to_restore_the_dislike/
 //
-// I've made some changes - var→let and fixing the like/dislike ratio bar to work properly
+// also using an updated version by u/Lussu97 that uses more modern js stuff & is nicer
 //
 // they seem to think this script will continue working indefinitely but i'm guessing that when youtube removes dislikes from the api they'll break this too
-
 
 // note api ver: `https://www.googleapis.com/youtube/v3/videos?part=contentDetails,statistics&id=«video id»&key=«api key»`. I have a browser one I could put here I think
 // https://console.cloud.google.com/apis/api/youtube.googleapis.com/credentials
 // gives like/dislike count
 
-function numberWithCommas(x) {
-    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-}
-
-async function waitForElm(s) {
-    while (!document.querySelector(s)) {
-        await new Promise(r => requestAnimationFrame(r))
+//1st method
+window.addEventListener('DOMNodeInserted', checkButton);
+function checkButton(e) {
+    if (e.target.id == "button") {
+        init();
+        window.removeEventListener('DOMNodeInserted', checkButton);
     }
-    return;
 }
 
-async function init() {
-
-    try {
-
-        const data = document.querySelector("ytd-app").data;
-
-        for (let p = 0; p < data.response.contents.twoColumnWatchNextResults.results.results.contents.length; p++) {
-
-            if (typeof data.response.contents.twoColumnWatchNextResults.results.results.contents[p].videoPrimaryInfoRenderer != 'undefined') {
-
-                var vidroot = data.response.contents.twoColumnWatchNextResults.results.results.contents[p];
-
-            }
-
-        }
-
-        let l;
-        if (vidroot.videoPrimaryInfoRenderer.videoActions.menuRenderer.topLevelButtons[0].toggleButtonRenderer.isToggled) {
-
-            l = parseInt(vidroot.videoPrimaryInfoRenderer.videoActions.menuRenderer.topLevelButtons[0].toggleButtonRenderer.toggledText.accessibility.accessibilityData.label.replace(/( likes|,)/g, ""));
-
-        } else {
-
-            l = parseInt(vidroot.videoPrimaryInfoRenderer.videoActions.menuRenderer.topLevelButtons[0].toggleButtonRenderer.defaultText.accessibility.accessibilityData.label.replace(/( likes|,)/g, ""));
-
-        }
-        const r = data.playerResponse.videoDetails.averageRating;
-
-        function calculateDislikes(l, r) {
-            var d = Math.round(l*((5-r)/(r-1)));
-            return d;
-        }
-
-        let dislikes;
-        if (r != 0) {
-
-            dislikes = await calculateDislikes(l, r);
-
-        } else {
-
-            dislikes = 0;
-
-        }
-
-        const dislikesfin = numberWithCommas(dislikes)
-        const likesfin = numberWithCommas(l);
-        // added bonus
-
-        if (r != 0) {
-
-            document.querySelector("yt-formatted-string#text.ytd-toggle-button-renderer").innerHTML = likesfin;
-
-        } else {
-
-            document.querySelector("yt-formatted-string#text.ytd-toggle-button-renderer").innerHTML = "0";
-
-        }
-
-        document.querySelectorAll("yt-formatted-string#text.ytd-toggle-button-renderer")[1].innerHTML = dislikesfin;
-
-        document.querySelector("yt-formatted-string#text.ytd-toggle-button-renderer").onmouseup = function() {
-            document.querySelector("yt-formatted-string#text.ytd-toggle-button-renderer").innerHTML = "";
-        }
-
-        document.querySelectorAll("yt-formatted-string#text.ytd-toggle-button-renderer")[1].onmouseup = function() {
-            document.querySelectorAll("yt-formatted-string#text.ytd-toggle-button-renderer")[1].innerHTML = "";
-        }
-
-
-        const sentimentPercent = l / (l + dislikes);
-
-        document.querySelector("ytd-sentiment-bar-renderer").removeAttribute("hidden");
-
-        document.getElementById("like-bar").setAttribute("style", "width: " + (sentimentPercent * 100) + "%;");
-
-    } catch(e) {};
-
-}
-
-waitForElm("yt-formatted-string#text.ytd-toggle-button-renderer").then(() => init());
-
+//2nd method
 window.addEventListener('yt-page-data-updated', init, false);
+
+function init() {
+    console.log("init()ing");
+    let data = document.querySelector("ytd-app").data;
+    if(data.response.contents.twoColumnWatchNextResults == undefined) return;
+    let contents = data.response.contents.twoColumnWatchNextResults.results.results.contents;
+    let vidroot;
+    for (let p = 0; p < contents.length && typeof (vidroot = contents[p]).videoPrimaryInfoRenderer == 'undefined'; p++);
+    let ratio = data.playerResponse.videoDetails.averageRating;
+    let percent = (ratio - 1) * 25;
+    let likes = Number(vidroot.videoPrimaryInfoRenderer.videoActions.menuRenderer.topLevelButtons[0].toggleButtonRenderer.toggledText.accessibility.accessibilityData.label.replace(/[^0-9]/g, '')) - 1;
+    let dislikes = Math.round(4 * likes / (ratio - 1)) - likes;
+    let bts = document.querySelectorAll("yt-formatted-string#text.ytd-toggle-button-renderer");
+    bts[1].innerHTML = FormatNumber(dislikes);
+    document.querySelector("ytd-sentiment-bar-renderer").removeAttribute("hidden");
+    document.getElementById("like-bar").setAttribute("style", "width: " + Math.round(percent) + "%;");
+    //document.getElementById("sentiment").setAttribute("style", "width: " +
+    //    bts[0].parentElement.getBoundingClientRect().width +
+    //    bts[1].parentElement.getBoundingClientRect().width + 12) + "px;";
+}
+
+function FormatNumber(value) {
+    return Intl.NumberFormat('en-US', { notation: 'compact' }).format(value);
+}

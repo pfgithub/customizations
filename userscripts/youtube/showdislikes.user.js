@@ -2,7 +2,7 @@
 // @name         YouTube Restore Dislike Counters
 // @version      1.0.0
 // @description  A userscript to restore the dislike counts on YouTube. Not 100% accurate all the time, but stil pretty accurate.
-// @author       syndiate
+// @author       syndiate ⊂ lussu ⊂ pfg
 // @match        *://www.youtube.com/*
 // @run_at       document_start
 // ==/UserScript==
@@ -13,9 +13,12 @@
 //
 // also using an updated version by u/Lussu97 that uses more modern js stuff & is nicer
 //
+// also I made some modifications: fixing the width thing + making it work correctly on videos from search + not using .innerHTML
+//
 // they seem to think this script will continue working indefinitely but i'm guessing that when youtube removes dislikes from the api they'll break this too
 
-// note api ver: `https://www.googleapis.com/youtube/v3/videos?part=contentDetails,statistics&id=«video id»&key=«api key»`. I have a browser one I could put here I think
+
+// note api ver: https://www.googleapis.com/youtube/v3/videos?part=contentDetails,statistics&id=«video id»&key=«api key. I have a browser one I could put here I think»
 // https://console.cloud.google.com/apis/api/youtube.googleapis.com/credentials
 // gives like/dislike count
 
@@ -31,24 +34,29 @@ function checkButton(e) {
 //2nd method
 window.addEventListener('yt-page-data-updated', init, false);
 
+//3rd method
+try {init();} catch(e) {}
+
 function init() {
     console.log("init()ing");
     let data = document.querySelector("ytd-app").data;
-    if(data.response.contents.twoColumnWatchNextResults == undefined) return;
+    if(data.response.contents.twoColumnWatchNextResults == undefined) throw new Error("eno");
     let contents = data.response.contents.twoColumnWatchNextResults.results.results.contents;
     let vidroot;
     for (let p = 0; p < contents.length && typeof (vidroot = contents[p]).videoPrimaryInfoRenderer == 'undefined'; p++);
     let ratio = data.playerResponse.videoDetails.averageRating;
+console.log(ratio)
     let percent = (ratio - 1) * 25;
     let likes = Number(vidroot.videoPrimaryInfoRenderer.videoActions.menuRenderer.topLevelButtons[0].toggleButtonRenderer.toggledText.accessibility.accessibilityData.label.replace(/[^0-9]/g, '')) - 1;
     let dislikes = Math.round(4 * likes / (ratio - 1)) - likes;
-    let bts = document.querySelectorAll("yt-formatted-string#text.ytd-toggle-button-renderer");
-    bts[1].innerHTML = FormatNumber(dislikes);
+    let bts = document.querySelectorAll("ytd-video-primary-info-renderer yt-formatted-string#text.ytd-toggle-button-renderer");
+    if(bts.length > 2) alert("error; more buttons than wanted");
+    bts[1].textContent = FormatNumber(dislikes);
     document.querySelector("ytd-sentiment-bar-renderer").removeAttribute("hidden");
     document.getElementById("like-bar").setAttribute("style", "width: " + Math.round(percent) + "%;");
-    //document.getElementById("sentiment").setAttribute("style", "width: " +
-    //    bts[0].parentElement.getBoundingClientRect().width +
-    //    bts[1].parentElement.getBoundingClientRect().width + 12) + "px;";
+    document.getElementById("sentiment").setAttribute("style", "width: " +
+        (bts[1].parentElement.getBoundingClientRect().right -
+        bts[0].parentElement.getBoundingClientRect().left) + "px;");
 }
 
 function FormatNumber(value) {

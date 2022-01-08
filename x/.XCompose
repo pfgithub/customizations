@@ -110,6 +110,7 @@ include "%L"
 <Multi_key> <d> <e> <l> : "⌦"
 <Multi_key> <f> <w> <d> <e> <l> : "⌦"
 <Multi_key> <b> <k> <s> <p> : "⌫"
+<Multi_key> <c> <t> <r> <l> : "⌃"
 # <Multi_key> <c> <o> <m> <p> <o> <s> <e> : "⎄" (max: 7 <…>)
 <Multi_key> <c> <m> <p> <z> : "⎄"
 <Multi_key> <s> <p> <a> <c> : "⎵"

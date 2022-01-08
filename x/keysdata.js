@@ -2468,6 +2468,7 @@ const data = [
     ["⎄",{"char":"⎋","codepoint":9099,"name":"BROKEN CIRCLE WITH NORTHWEST ARROW"},[{"symbol":"⎄","name":"Multi_key"},{"symbol":"e","name":"e"},{"symbol":"s","name":"s"},{"symbol":"c","name":"c"}]],
     ["⎄",{"char":"⌦","codepoint":8998,"name":"ERASE TO THE RIGHT"},[{"symbol":"⎄","name":"Multi_key"},{"symbol":"d","name":"d"},{"symbol":"e","name":"e"},{"symbol":"l","name":"l"}],[{"symbol":"⎄","name":"Multi_key"},{"symbol":"f","name":"f"},{"symbol":"w","name":"w"},{"symbol":"d","name":"d"},{"symbol":"e","name":"e"},{"symbol":"l","name":"l"}]],
     ["⎄",{"char":"⌫","codepoint":9003,"name":"ERASE TO THE LEFT"},[{"symbol":"⎄","name":"Multi_key"},{"symbol":"b","name":"b"},{"symbol":"k","name":"k"},{"symbol":"s","name":"s"},{"symbol":"p","name":"p"}]],
+    ["⎄",{"char":"⌃","codepoint":8963,"name":"UP ARROWHEAD"},[{"symbol":"⎄","name":"Multi_key"},{"symbol":"c","name":"c"},{"symbol":"t","name":"t"},{"symbol":"r","name":"r"},{"symbol":"l","name":"l"}]],
     ["//"," <Multi_key> <c> <o> <m> <p> <o> <s> <e> : \"⎄\" (max: 7 <…>)"],
     ["⎄",{"char":"⎄","codepoint":9092,"name":"COMPOSITION SYMBOL"},[{"symbol":"⎄","name":"Multi_key"},{"symbol":"c","name":"c"},{"symbol":"m","name":"m"},{"symbol":"p","name":"p"},{"symbol":"z","name":"z"}]],
     ["⎄",{"char":"⎵","codepoint":9141,"name":"BOTTOM SQUARE BRACKET"},[{"symbol":"⎄","name":"Multi_key"},{"symbol":"s","name":"s"},{"symbol":"p","name":"p"},{"symbol":"a","name":"a"},{"symbol":"c","name":"c"}]],

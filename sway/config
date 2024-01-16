@@ -1,0 +1,172 @@
+# ==============
+# Config
+# ==============
+
+# NOTES TODO:
+# sudo sh -c "echo 2 > /sys/module/hid_apple/parameters/fnmode"
+# sudo ~/.local/bin/kmonad ~/Dev/Node/customizations/kmonad/kmonad.kbd
+
+for_window [app_id="flameshot"] border pixel 0, floating enable, fullscreen disable, move absolute position 0 0
+exec --no-startup-id waybar
+
+output 'eDP-1' scale 1.0 bg "#222222" solid_color
+
+bindgesture swipe:4:right workspace next
+bindgesture swipe:4:left workspace prev
+input "type:touchpad" scroll_factor 0.2
+
+# mod — ⌘  Win
+set $mod Mod4
+# alt — ⎇  Alt
+set $alt Mod1
+
+# mod+mouse — move/resize windows
+floating_modifier $mod
+
+# 1px window border. recommended to mod+Shift+b whenever possible, borders look bad
+for_window [title="^[^:]"] border pixel 1
+
+# Default all opened windows to floating
+for_window [title="^[^:]"] floating enable
+
+# Specific overrides
+for_window [window_role="PictureInPicture"] sticky enable, border pixel 0
+
+# Gaps, keep in order apparently
+gaps inner 15
+gaps outer 25
+
+# Back and forth
+workspace_auto_back_and_forth yes
+
+# Workspaces
+set $ws1 "1"
+set $ws2 "2"
+set $ws3 "3"
+set $ws4 "4"
+set $ws5 "5"
+set $ws6 "6"
+set $ws7 "7"
+set $ws8 "8"
+set $ws9 "9"
+set $ws10 "10"
+set $wsW "W"
+set $wsE "E"
+set $wsR "R"
+
+workspace $ws1 output DVI-I-0
+workspace $ws2 output HDMI-0
+workspace $ws3 output DP-0
+workspace $ws4 output DP-0
+workspace $ws5 output DP-0
+workspace $wsE output DP-0
+
+# ==============
+# Startup Programs
+# ==============
+exec --no-startup-id fish -c "cd ~/.config/i3/init; and source std.fish; and start_terminal -t \": startup :\" -x \"fish all.fish\" -c ~/.config/sway"
+
+# recommended i3 font for some reason
+font pango:monospace 8
+
+# ==============
+# Bindings
+# ==============
+
+# mod+enter — launch terminal
+bindsym $mod+Return exec --no-startup-id xfce4-terminal --default-working-directory ~/Dev/Node/temp/waiting
+
+# mod+shift+q — close window
+bindsym $mod+Shift+q kill
+
+# mod+x, mod+c — swap windows (mark with x, swap with c)
+#bindsym --whole-window $mod+x mark --add quickswap
+#bindsym --whole-window $mod+c swap container with mark quickswap; [con_mark="quickswap"] focus
+
+# mod+space — launch apps (whiskermenu)
+bindsym $mod+space exec --no-startup-id xfce4-popup-whiskermenu
+
+# alt+tab — remind you to not press alt+tab by showing a useless and painful alt+tab menu
+bindsym $alt+Tab exec --no-startup-id rofi -show window
+
+# mod+Shift+p - show a menu of less commonly used actions
+bindsym $mod+Shift+p exec --no-startup-id fish -c 'fish -c (cat ~/.config/i3/actionslist | rofi -dmenu)'
+
+# mod+l, mod+shift+l — unicode character entry (shift to copy character, noshift to type character)
+bindsym $mod+l exec --no-startup-id fish -c 'xdotool type (unipicker --command "rofi -dmenu")'
+bindsym $mod+Shift+l exec --no-startup-id fish -c 'set text (unipicker --command "rofi -dmenu") && [ $text != "" ] && copytxt $text'
+
+# mod+shift+v — type clipboard contents
+bindsym --release $mod+Shift+v exec fish -c 'sleep 0.5 && xdotool type (paste)'
+
+# mod+arrows — move focus to a container vaguely related to the direction you press
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+# mod+a, mod+d — focus p[a]rent/chil[d] container 
+bindsym $mod+a focus parent
+bindsym $mod+d focus child
+
+# mod+Shift+arrows — move the focused container to a random location vaguely related to the direction you press
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+# mod+h, mod+v — insert next window rig[h]t/do[v]vn
+bindsym $mod+h split h
+bindsym $mod+v split v
+
+# mod+f — toggle fullscreen
+bindsym $mod+f fullscreen toggle
+
+# mod+t — [t]oggle floating on the active window or container
+bindsym $mod+t floating toggle
+bindsym $mod+Shift+u exec --no-startup-id notify-send "mod+t to toggle" -i notifications -t 500
+
+# mod+Shift+escape - open xfce4-taskmanager
+bindsym $mod+Shift+Escape exec --no-startup-id xfce4-taskmanager
+
+# mod+Backslash - change focus between tiling [\] floating windows
+bindsym $mod+backslash focus mode_toggle
+
+# take a screenshot
+bindsym $mod+Print exec flameshot gui
+
+# mod+0-9/e/r — switch to workspace
+bindsym $mod+1 workspace $ws1
+bindsym $mod+2 workspace $ws2
+bindsym $mod+3 workspace $ws3
+bindsym $mod+4 workspace $ws4
+bindsym $mod+5 workspace $ws5
+bindsym $mod+6 workspace $ws6
+bindsym $mod+7 workspace $ws7
+bindsym $mod+8 workspace $ws8
+bindsym $mod+9 workspace $ws9
+bindsym $mod+0 workspace $ws10
+bindsym $mod+w workspace $wsW
+bindsym $mod+e workspace $wsE
+bindsym $mod+r workspace $wsR
+bindsym $mod+s scratchpad show
+
+# mod+0-9/e/r — move window/container to workspace
+bindsym $mod+Shift+1 move container to workspace $ws1
+bindsym $mod+Shift+2 move container to workspace $ws2
+bindsym $mod+Shift+3 move container to workspace $ws3
+bindsym $mod+Shift+4 move container to workspace $ws4
+bindsym $mod+Shift+5 move container to workspace $ws5
+bindsym $mod+Shift+6 move container to workspace $ws6
+bindsym $mod+Shift+7 move container to workspace $ws7
+bindsym $mod+Shift+8 move container to workspace $ws8
+bindsym $mod+Shift+9 move container to workspace $ws9
+bindsym $mod+Shift+0 move container to workspace $ws10
+bindsym $mod+Shift+w move container to workspace $wsW
+bindsym $mod+Shift+e move container to workspace $wsE
+bindsym $mod+Shift+r move container to workspace $wsR
+bindsym $mod+Shift+s move scratchpad
+
+# mod+Shift+b, mod+Shift+n — disa[b]le/e[n]able borders on focused window
+bindsym $mod+Shift+b border pixel 0
+bindsym $mod+Shift+n border pixel 1

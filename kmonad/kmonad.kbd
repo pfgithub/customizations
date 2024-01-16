@@ -1,0 +1,29 @@
+(defcfg
+	input (device-file "/dev/input/by-path/platform-24eb30000.input-event-kbd")
+	output (uinput-sink "KMonad")
+
+	cmp-seq ralt
+	cmp-seq-delay 5
+	fallthrough true
+	allow-cmd true
+
+)
+
+(defsrc
+  grv  1    2    3    4    5    6    7    8    9    0    -    =    bspc
+  tab  q    w    e    r    t    y    u    i    o    p    [    ]    \
+  caps a    s    d    f    g    h    j    k    l    ;    '    ret
+  lsft z    x    c    v    b    n    m    ,    .    /    rsft
+  lctl lmet lalt           spc            ralt rmet cmp  rctl
+)
+
+(deflayer qwerty
+  grv  1    2    3    4    5    6    7    8    9    0    -    =    del
+  tab  q    w    e    r    t    y    u    i    o    p    [    ]    \
+  bspc a    s    d    f    g    h    j    k    l    ;    '    ret
+  lsft z    x    c    v    b    n    m    ,    .    /    rsft
+  lctl lmet lalt           spc            ralt rmet cmp rctl
+)
+
+
+

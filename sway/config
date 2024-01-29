@@ -7,12 +7,18 @@
 # sudo ~/.local/bin/kmonad ~/Dev/Node/customizations/kmonad/kmonad.kbd
 
 for_window [app_id="flameshot"] border pixel 0, floating enable, fullscreen disable, move absolute position 0 0
+
+# TODO: replace with xfce4-panel once xfce 4.20 comes out
 exec --no-startup-id waybar
+exec --no-startup-id nm-applet
+
+exec --no-startup-id thunar --daemon
+exec --no-startup-id krunner --daemon
 
 output 'eDP-1' scale 1.0 bg "#222222" solid_color
 
-bindgesture swipe:4:right workspace next
-bindgesture swipe:4:left workspace prev
+bindgesture swipe:4:left workspace next
+bindgesture swipe:4:right workspace prev
 input "type:touchpad" scroll_factor 0.2
 
 # mod — ⌘  Win
@@ -84,7 +90,9 @@ bindsym $mod+Shift+q kill
 #bindsym --whole-window $mod+c swap container with mark quickswap; [con_mark="quickswap"] focus
 
 # mod+space — launch apps (whiskermenu)
-bindsym $mod+space exec --no-startup-id xfce4-popup-whiskermenu
+bindsym $mod+space exec --no-startup-id krunner
+bindsym $mod+Shift+space exec --no-startup-id sh ~/.config/sway/applauncher.sh
+# xfce4-popup-whiskermenu
 
 # alt+tab — remind you to not press alt+tab by showing a useless and painful alt+tab menu
 bindsym $alt+Tab exec --no-startup-id rofi -show window

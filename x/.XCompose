@@ -13,6 +13,8 @@ include "%L"
 <Multi_key> <v> <minus> : "▾"
 <Multi_key> <minus> <minus> <v> : "⬎"
 
+<Multi_key> <Left> <Left> : "<" # just testing - this works on mac too and I realised it might work here
+
 ## Random Symbols
 <Multi_key> <semicolon> <semicolon> : "·" # Unnecessary, ralt.- is good enough.
 <Multi_key> <O> <period> : "Ꙩ"
@@ -171,7 +173,7 @@ include "%L"
 <Multi_key> <k> <H> <z> : "㎑"
 <Multi_key> <M> <H> <z> : "㎒"
 <Multi_key> <G> <H> <z> : "㎓"
-<Multi_key> <T> <H> <z> : "㎔"
+<Multi_key> <T> <h> <z> : "㎔"
 <Multi_key> <p> <V> : "㎴"
 <Multi_key> <n> <V> : "㎵"
 <Multi_key> <u> <V> : "㎶"

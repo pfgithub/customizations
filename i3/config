@@ -51,7 +51,7 @@ workspace $wsE output DP-0
 # ==============
 # Startup Programs
 # ==============
-exec --no-startup-id fish -c "cd ~/.config/i3/init; and source std.fish; and start_terminal -t \": startup :\" -x \"fish all.fish\" -c ~/.config/i3/init"
+exec --no-startup-id fish -c ~/.config/i3/init/startup_terminal.fish
 
 # recommended i3 font for some reason
 font pango:monospace 8

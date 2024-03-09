@@ -37,8 +37,6 @@ nnoremap <F7> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> t
 
 let g:markdown_fenced_languages = ['zig', 'uil=uilang', 'js=javascript', 'html', 'json', 'diff']
 
-let g:scrollfix=50
-
 nmap <buffer><silent> <leader>p "+p
 autocmd FileType markdown nmap <buffer><silent> <leader>p :call mdip#MarkdownClipboardImage()<CR>
 " there are some defaults for image directory and image name, you can change them

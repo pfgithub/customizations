@@ -6,7 +6,8 @@
 # sudo sh -c "echo 2 > /sys/module/hid_apple/parameters/fnmode"
 # sudo ~/.local/bin/kmonad ~/Dev/Node/customizations/kmonad/kmonad.kbd
 
-for_window [app_id="flameshot"] border pixel 0, floating enable, fullscreen disable, move absolute position 0 0
+# x apps use llvmpipe maybe?
+xwayland disable
 
 # TODO: replace with xfce4-panel once xfce 4.20 comes out
 exec --no-startup-id waybar
@@ -90,8 +91,8 @@ bindsym $mod+Shift+q kill
 #bindsym --whole-window $mod+c swap container with mark quickswap; [con_mark="quickswap"] focus
 
 # mod+space — launch apps (whiskermenu)
-bindsym $mod+space exec --no-startup-id krunner
-bindsym $mod+Shift+space exec --no-startup-id sh ~/.config/sway/applauncher.sh
+bindsym $mod+Shift+space exec --no-startup-id krunner
+bindsym $mod+space exec --no-startup-id sh ~/.config/sway/applauncher.sh
 # xfce4-popup-whiskermenu
 
 # alt+tab — remind you to not press alt+tab by showing a useless and painful alt+tab menu
@@ -141,7 +142,9 @@ bindsym $mod+Shift+Escape exec --no-startup-id xfce4-taskmanager
 bindsym $mod+backslash focus mode_toggle
 
 # take a screenshot
-bindsym $mod+Print exec flameshot gui
+# bindsym $mod+Print exec flameshot gui
+bindsym $mod+Print exec bash -c 'grim -g "$(slurp -d)" - | wl-copy -t image/png'
+bindsym $mod+Alt+4 exec bash -c 'grim -g "$(slurp -d)" - | wl-copy -t image/png'
 
 # mod+0-9/e/r — switch to workspace
 bindsym $mod+1 workspace $ws1
@@ -178,3 +181,10 @@ bindsym $mod+Shift+s move scratchpad
 # mod+Shift+b, mod+Shift+n — disa[b]le/e[n]able borders on focused window
 bindsym $mod+Shift+b border pixel 0
 bindsym $mod+Shift+n border pixel 1
+
+
+for_window [app_id="flameshot"] border pixel 0, floating enable, fullscreen disable, move absolute position 0 0
+for_window [app_id="firefox"] border pixel 0
+for_window [app_id="chromium-browser"] border pixel 0
+
+

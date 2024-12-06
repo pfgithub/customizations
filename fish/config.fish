@@ -1,6 +1,7 @@
 source ~/.config/fish/personal_config.fish
 
 bind --user (echo -ne "\e")"[3;5~" kill-word
+bind --user (echo -ne "\e")"[3;3~" kill-word
 bind --user (echo -ne "\x08") backward-kill-word
 
 set -g theme_nerd_fonts yes

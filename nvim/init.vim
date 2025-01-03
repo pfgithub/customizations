@@ -46,3 +46,5 @@ let g:mdip_random_name = 'yes'
 
 " nvm "imap jj <Esc>
 noremap <Leader>s :w<CR>
+
+let g:zig_fmt_autosave = 0

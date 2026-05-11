@@ -1,6 +1,8 @@
 # Defined in - @ line 1
 function paste --argument filename
-    if type -q pbpaste
+    if type -q wl-paste
+        wl-paste
+    else if type -q pbpaste
         pbpaste
     else
         xclip -selection clipboard -o
